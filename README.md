@@ -1,13 +1,36 @@
 # VERY VERY VERY WORK IN PROGRESS
 
-## AV0 - No Intelligence (Only laws)
-A max for live patch for my audio visual performance.
+## AV0 - No Intelligence
+
+What
+
+#### What you find here and what they do in short
+
+##### MaxForLive file
+
+* AV0.amxd
+
+##### Max/MSP files
+
+* ###### call-scene.maxpat
+* ###### method-selector.maxpat
+* ###### setup-scene.maxpat
+* ###### sustain-check.maxpat
+* ###### timer.maxpat
+* ###### titles.maxpat
+
+##### Text files
+
+* ###### types.txt
+* ###### actions.txt
+
+##### Javscript files
+
+* ###### main.js
+* ###### utilities.js
+* ###### characters.js
 
 
-#### Questions:
-How can a projection play the part of a partner isntead of being the cause of the peroformer actions?
-How can the usual 2D projection renew itsef and adapt to different venues?
-	- See Daedalus on preparing a perfomance that suits the space and trying not to repeat himself
 
 ### Laws:
 
