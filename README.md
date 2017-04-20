@@ -3,17 +3,38 @@
 An exploration on human-computer collaboration in the field of audio visual, dedicated to anyone believing in computers as partners in the creative flow.
 
 
-## About
+
+## About the project
 
 AV0 is an audio visual project I started in September 2016 with the initial desire to make a personal piece to tour to venues. During its development however I realize I was giving introducing a perspective on performing audio visuals, and building something that was closer to an expandable framework rather than a set piece.
 
 If you want to learn more about the concept behind AV0 you can do so on my website here.
 
 
+
+## About the documentation
+
+This documentation is bad. But in these fast paced times we live in, I decided it was more important to give anyone who comes across the project the chance to put their hands on it and eventually yell at me for the poor documentation, poor code and overall alpha stage. Time is little, things to say are many, and I did an extreme selection of information to get you started.
+I really hope what you'll read on this page can give you the chance to try the project, and please if you find any difficulties let me know and I'll do what I can to help.  
+
+
+
+## Getting Started
+As I mentioned above this project was intented to be a tool for myself, and while I see in it a potential for others to contribute to expanding it. I should warn you that this is very, very alpha.
+I wish I could give you step by step instructions but I believe the best I can do at this point is to share a Live file already setup you where you can see some things by yourself instead of reading and infinite list of instructions. So the following instructions are for the file I mentioned:
+
+1. __Download__ the Live file that comes with a pre set track including all you need to just play.
+2. __Hit Play —__ visuals are linked to live's transport, so playback needs to be active.
+3. __Play —__ launch a clip to see visuals reacting to MIDI notes.
+
+And that should be enought to get you hooked a little, hopefully. 
+
+
+
 ## Files
 Simply a list of all the files you'll find in this repository, and a brief description on what they do
 
-### MaxForLive file
+#### MaxForLive file
 
 * __AV0.amxd —__ This is the main file.
 
