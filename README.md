@@ -1,34 +1,60 @@
-# VERY VERY VERY WORK IN PROGRESS
+# AV0 - No Intelligence
 
-## AV0 - No Intelligence
+An exploration on human-computer collaboration in the field of audio visual, dedicated to anyone believing in computers as partners in the creative flow.
 
-What
 
-#### What you find here and what they do in short
+## About
 
-##### MaxForLive file
+AV0 is an audio visual project I started in September 2016 with the initial desire to make a personal piece to tour to venues. During its development however I realize I was giving introducing a perspective on performing audio visuals, and building something that was closer to an expandable framework rather than a set piece.
+
+If you want to learn more about the concept behind AV0 you can do so on my website here.
+
+
+## Files
+Simply a list of all the files you'll find in this repository, and a brief description on what they do
+
+### MaxForLive file
 
 * __AV0.amxd —__ This is the main file.
 
-##### Max/MSP files
+### Max/MSP files
 
-* ###### call-scene.maxpat
-* ###### method-selector.maxpat
-* ###### setup-scene.maxpat
-* ###### sustain-check.maxpat
-* ###### timer.maxpat
-* ###### titles.maxpat
+* __call-scene.maxpat —__ This is the main file.
+* __method-selector.maxpat —__ This is the main file.
+* __setup-scene.maxpat —__ This is the main file.
+* __sustain-check.maxpat —__ This is the main file.
+* __timer.maxpat —__ This is the main file.
+* __titles.maxpat —__ This is the main file.
 
-##### Text files
+### Text files
 
-* ###### types.txt
-* ###### actions.txt
+* __types.txt —__ This is the main file.
+* __actions.txt —__ This is the main file.
 
-##### Javscript files
+### Javscript files
 
-* ###### main.js
-* ###### utilities.js
-* ###### characters.js
+* __main.js —__ This is the main file.
+* __utilities.js —__ This is the main file.
+* __characters.js —__ This is the main file.
+
+### Tools folder
+
+* __Layout Debugger.amxd —__ This is the main file.
+* __Levels.amxd —__ This is the main file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
