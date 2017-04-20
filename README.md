@@ -17,7 +17,7 @@ Simply a list of all the files you'll find in this repository, and a brief descr
 
 * __AV0.amxd —__ This is the main file.
 
-### Max/MSP files
+#### Max/MSP files
 
 * __call-scene.maxpat —__ This is the main file.
 * __method-selector.maxpat —__ This is the main file.
@@ -26,18 +26,18 @@ Simply a list of all the files you'll find in this repository, and a brief descr
 * __timer.maxpat —__ This is the main file.
 * __titles.maxpat —__ This is the main file.
 
-### Text files
+#### Text files
 
 * __types.txt —__ This is the main file.
 * __actions.txt —__ This is the main file.
 
-### Javscript files
+#### Javscript files
 
 * __main.js —__ This is the main file.
 * __utilities.js —__ This is the main file.
 * __characters.js —__ This is the main file.
 
-### Tools folder
+#### Tools folder
 
 * __Layout Debugger.amxd —__ This is the main file.
 * __Levels.amxd —__ This is the main file.
