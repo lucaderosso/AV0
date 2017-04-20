@@ -20,7 +20,7 @@ autowatch = 1; // so the [js] object in max wil recompile the code each time is 
 outlets = 2; // number of outlets for the [js] object
 
 include("utilities");
-include("characters");
+include("elements");
 
 var layer1 = new Layer();
 var layer2 = new Layer();

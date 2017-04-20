@@ -55,14 +55,14 @@ Simply a list of all the files you'll find in this repository, and a brief descr
 
 #### Javscript files
 
-* __main.js —__ This is the main file.
-* __utilities.js —__ This is the main file.
-* __characters.js —__ This is the main file.
+* __main.js —__ This is the main js which is primarili responsible for listening to user's input and drawing on the window.
+* __elements.js —__ This is where elements are defined, generated, organized on the grid and where actions are defined. Among all things I whis it was solved better, this is one of the areas I believe needs the greater improvements to make this device flexible enought to be able to generate elements and animate them.
+* __utilities.js —__ This is where basic setup and other utilities are.
 
 #### Tools folder
 
-* __Layout Debugger.amxd —__ This is the main file.
-* __Levels.amxd —__ This is the main file.
+* __Layout Debugger.amxd —__ This device is used to test out new elements and how they behave in different layouts.
+* __Levels.amxd —__ This device sends levels values via a send object that are then received by AV0 to affect elements and such. It's not a clean solution but though.
 
 
 
