@@ -9,8 +9,20 @@ How can a projection play the part of a partner isntead of being the cause of th
 How can the usual 2D projection renew itsef and adapt to different venues?
 	- See Daedalus on preparing a perfomance that suits the space and trying not to repeat himself
 
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
 
-# Laws:
+⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
+
+
+### Laws:
 
 1. Each layer has a different object type
 ⋅⋅⋅Each layer should be populated with a different object type
