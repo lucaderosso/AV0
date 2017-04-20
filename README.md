@@ -4,7 +4,7 @@ An exploration on human-computer collaboration in the field of audio visual, ded
 
 
 
-## About the project
+## About this project
 
 AV0 is an audio visual project I started in September 2016 with the initial desire to make a personal piece to tour to venues. During its development however I realize I was giving introducing a perspective on performing audio visuals, and building something that was closer to an expandable framework rather than a set piece.
 
@@ -12,7 +12,7 @@ If you want to learn more about the concept behind AV0 you can do so on my websi
 
 
 
-## About the documentation
+## About this documentation
 
 This documentation is bad. But in these fast paced times we live in, I decided it was more important to give anyone who comes across the project the chance to put their hands on it and eventually yell at me for the poor documentation, poor code and overall alpha stage. Time is little, things to say are many, and I did an extreme selection of information to get you started.
 I really hope what you'll read on this page can give you the chance to try the project, and please if you find any difficulties let me know and I'll do what I can to help.  
@@ -20,6 +20,7 @@ I really hope what you'll read on this page can give you the chance to try the p
 
 
 ## Getting Started
+
 As I mentioned above this project was intented to be a tool for myself, and while I see in it a potential for others to contribute to expanding it. I should warn you that this is very, very alpha.
 I wish I could give you step by step instructions but I believe the best I can do at this point is to share a Live file already setup you where you can see some things by yourself instead of reading and infinite list of instructions. So the following instructions are for the file I mentioned:
 
@@ -32,25 +33,25 @@ And that should be enought to get you hooked a little, hopefully.
 
 
 ## Files
-Simply a list of all the files you'll find in this repository, and a brief description on what they do
+Simply a list of all the files you'll find in this repository, and a brief description on what they do. Please note: give its very alpha stage most if not all of the following files might look like they are offering functionalities that are not used or some method might look as designed to be apparently uselessly scalable. The hope of course is to fullly elaborate all of them soon.
 
 #### MaxForLive file
 
-* __AV0.amxd —__ This is the main file.
+* __AV0.amxd —__ This is the main MaxForLive device.
 
 #### Max/MSP files
 
-* __call-scene.maxpat —__ This is the main file.
-* __method-selector.maxpat —__ This is the main file.
-* __setup-scene.maxpat —__ This is the main file.
-* __sustain-check.maxpat —__ This is the main file.
-* __timer.maxpat —__ This is the main file.
-* __titles.maxpat —__ This is the main file.
+* __call-scene.maxpat —__ This file is responsible to stopping all sounds, blocking user input and calling a new scene. It's used every time the timer reaches the end, if this last one is enabled.
+* __method-selector.maxpat —__ This file is responsible for assigning an action to each MIDI note. To see how MIDI notes are mapped please see the Mapping section.
+* __setup-scene.maxpat —__ This file is responsible for creating a new scene. Sets the grid's subdivision, decides how many elements to add to each layer, what tipe and size. A lot od randomness goes on here, one day I hope it'll be more intelligent.
+* __sustain-check.maxpat —__ This file is responsible to tell the js methods wether at least one note in a row is still pressed or not. To learn what I mean by rows please see the Mapping section.
+* __timer.maxpat —__ This file bangs the js object and controls the countdown based on Live global transport.
+* __titles.maxpat —__ This file is responsible for showing titles every time a new scene is created.
 
 #### Text files
 
-* __types.txt —__ This is the main file.
-* __actions.txt —__ This is the main file.
+* __types.txt —__ This file is a list of names referring to elements that can be created. It's loaded and by _setup-scene.maxpat_ to select random elements from it and then generate them via the relative method inside _characters.js_ file. 
+* __actions.txt —__ This file is a list of actions elements can do when there is incoming MIDI messages. It's used by _method-selector.maxpat_ which, at the creation of every new scene, will pick a random action variation for each note. At the current stage of AV0 this approach is not necessary given to the limited set of available actions developed so far.
 
 #### Javscript files
 
@@ -65,6 +66,16 @@ Simply a list of all the files you'll find in this repository, and a brief descr
 
 
 
+#### Mapping
+
+Images and mapping explanation.
+
+
+
+#### Secret keys
+
+__Press V:__ to see the viewport within which visuals are projected. Useful when going fullscreen on unusual aspect ratios and need to calibrate the projector.
+__Press T:__ to see again titles after they disappear. Pressing notes again will make them fade away.
 
 
 
@@ -77,34 +88,3 @@ Simply a list of all the files you'll find in this repository, and a brief descr
 
 
 
-
-
-### Laws:
-
-1. Each layer has a different object type
-
-    `Each layer should be populated with a different object type`
-
-2. Number of obects follows a geometric series
-
-    `The quantity of characters is defined by the series where each term after the first is twice the previous term e.g.: 1, 2, 4, 8, 16...`
-
-3. The window has a scale defined
-
-	`The window is divided in a checked grid which resolution is designated using the series in law 2.`
-
-4. Objecst move according to the scale
-
-	`Objects move with increments defined dividing the window's size by the designated resolution.`
-
-5. Obejcs are arranged on a grid system 
-
-	`Objects are arranged in space based on a generative grid system in which the number rows and colums is defined using the series in law 2.`
-
-6. Obejcs move withing the bounds defined by the grid called roaming areas
-
-	`An object placed in the top left cell of a 2 by 2 grid will move solely inside that and never invade other spaces in that layer.`
-
-7. The size of each object is a fraction of the checked grid increment
-
-	`Eg: increment = 0.25, size = 0.5, then size = 0.25 * 0.5 = 0.125. Multiples are 1 1/2 1/4 1/8 1/16 1/32`
