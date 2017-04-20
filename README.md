@@ -8,8 +8,7 @@ What
 
 ##### MaxForLive file
 
-* ###### AV0.amxd
-... This is the main file.
+* __AV0.amxd —__ This is the main file.
 
 ##### Max/MSP files
 
