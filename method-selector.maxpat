@@ -4,12 +4,12 @@
 		"appversion" : 		{
 			"major" : 7,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 3,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 462.0, 242.0, 1013.0, 1031.0 ],
+		"rect" : [ 676.0, 96.0, 442.0, 1031.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -37,6 +37,32 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-25",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 84.000008, 822.0, 125.0, 22.0 ],
+					"style" : "",
+					"text" : "bgfillcolor $1 $1 $1 1."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 84.000008, 785.333374, 135.0, 22.0 ],
+					"style" : "",
+					"text" : "if $i1 > 0 then 1. else 0."
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-9",
 					"maxclass" : "comment",
@@ -79,35 +105,6 @@
 					"bgcolor" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
 					"bgcolor2" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
 					"bgfillcolor_angle" : 270.0,
-					"bgfillcolor_autogradient" : 0,
-					"bgfillcolor_color" : [ 0.109804, 0.109804, 0.109804, 1.0 ],
-					"bgfillcolor_color1" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
-					"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-					"bgfillcolor_proportion" : 0.39,
-					"bgfillcolor_type" : "color",
-					"fontname" : "Arial",
-					"fontsize" : 10.0,
-					"gradient" : 1,
-					"id" : "obj-4",
-					"ignoreclick" : 1,
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 195.0, 706.0, 30.0, 20.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 13.0, 2.0, 30.0, 20.0 ],
-					"style" : "",
-					"text" : "0",
-					"textcolor" : [ 1.0, 1.0, 1.0, 0.3 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgcolor" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
-					"bgcolor2" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
-					"bgfillcolor_angle" : 270.0,
 					"bgfillcolor_autogradient" : 0.0,
 					"bgfillcolor_color" : [ 0.988112, 0.33269, 0.396468, 1.0 ],
 					"bgfillcolor_color1" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
@@ -133,6 +130,7 @@
 				"box" : 				{
 					"comment" : "Receives symbol for group of methods to populate dropdown with.",
 					"id" : "obj-20",
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -198,6 +196,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-32",
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -230,23 +229,6 @@
 					"patching_rect" : [ 69.5, 496.0, 90.0, 33.0 ],
 					"style" : "",
 					"text" : "Velocity value from push pad"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"bgcolor" : [ 0.109804, 0.109804, 0.109804, 1.0 ],
-					"blinkcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
-					"id" : "obj-10",
-					"maxclass" : "button",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"outlinecolor" : [ 1.0, 1.0, 1.0, 0.13 ],
-					"patching_rect" : [ 165.5, 704.0, 24.0, 24.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 1.0, 5.5, 12.0, 12.0 ],
-					"style" : ""
 				}
 
 			}
@@ -400,6 +382,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-3",
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -412,6 +395,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-2",
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -425,6 +409,7 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-1",
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -497,6 +482,54 @@
 				}
 
 			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
+					"bgcolor2" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
+					"bgfillcolor_angle" : 270.0,
+					"bgfillcolor_autogradient" : 0.0,
+					"bgfillcolor_color" : [ 0.0, 0.0, 0.0, 0.0 ],
+					"bgfillcolor_color1" : [ 0.92549, 0.364706, 0.341176, 1.0 ],
+					"bgfillcolor_color2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+					"bgfillcolor_proportion" : 0.39,
+					"bgfillcolor_type" : "color",
+					"fontname" : "Arial",
+					"fontsize" : 8.0,
+					"gradient" : 1,
+					"id" : "obj-4",
+					"ignoreclick" : 1,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 198.5, 704.0, 29.0, 17.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 2.583333, 2.083335, 26.0, 17.0 ],
+					"style" : "",
+					"text" : "0",
+					"textcolor" : [ 0.0, 0.0, 0.0, 0.5 ],
+					"textjustification" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.27451, 0.27451, 0.27451, 1.0 ],
+					"id" : "obj-11",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 84.000008, 865.0, 128.0, 128.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 0.583333, 0.583335, 30.0, 20.0 ],
+					"proportion" : 0.39,
+					"rounded" : 2,
+					"style" : ""
+				}
+
+			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
@@ -513,6 +546,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-12", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-25", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-13", 0 ]
 				}
 
 			}
@@ -576,6 +618,7 @@
 					"destination" : [ "obj-19", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"order" : 0,
 					"source" : [ "obj-20", 0 ]
 				}
 
@@ -585,6 +628,7 @@
 					"destination" : [ "obj-22", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"order" : 1,
 					"source" : [ "obj-20", 0 ]
 				}
 
@@ -594,6 +638,7 @@
 					"destination" : [ "obj-28", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"order" : 2,
 					"source" : [ "obj-20", 0 ]
 				}
 
@@ -622,6 +667,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-24", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-25", 0 ]
 				}
 
 			}
@@ -659,6 +713,7 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"midpoints" : [ 300.5, 236.0, 548.0, 236.0 ],
+					"order" : 0,
 					"source" : [ "obj-28", 4 ]
 				}
 
@@ -668,6 +723,7 @@
 					"destination" : [ "obj-22", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"order" : 1,
 					"source" : [ "obj-28", 4 ]
 				}
 
@@ -764,10 +820,11 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
+					"destination" : [ "obj-13", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"source" : [ "obj-77", 0 ]
+					"order" : 2,
+					"source" : [ "obj-77", 2 ]
 				}
 
 			}
@@ -787,6 +844,7 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"midpoints" : [ 215.0, 633.5, 367.5, 633.5 ],
+					"order" : 0,
 					"source" : [ "obj-77", 2 ]
 				}
 
@@ -796,6 +854,7 @@
 					"destination" : [ "obj-4", 1 ],
 					"disabled" : 0,
 					"hidden" : 0,
+					"order" : 1,
 					"source" : [ "obj-77", 2 ]
 				}
 
@@ -859,7 +918,7 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "actions.txt",
-				"bootpath" : "~/Documents/_Projects/audio/sets/AV0 Project/max",
+				"bootpath" : "~/Documents/_Projects/2016-09_s-av_AV0/repository/AV0",
 				"type" : "TEXT",
 				"implicit" : 1
 			}

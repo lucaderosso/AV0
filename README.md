@@ -24,7 +24,7 @@ I really hope what you'll read on this page can give you the chance to try the p
 As I mentioned above this project was intented to be a tool for myself, and while I see in it a potential for others to contribute to expanding it. I should warn you that this is very, very alpha.
 I wish I could give you step by step instructions but I believe the best I can do at this point is to share a Live file already setup you where you can see some things by yourself instead of reading and infinite list of instructions. So the following instructions are for the file I mentioned:
 
-1. __Download__ the Live file that comes with a pre set track including all you need to just play.
+1. __Download__ and launch this Live file which comes with a pre set track including all you need to just play.
 2. __Hit Play —__ visuals are linked to live's transport, so playback needs to be active.
 3. __Play —__ launch a clip to see visuals reacting to MIDI notes.
 
@@ -74,8 +74,8 @@ Images and mapping explanation.
 
 #### Secret keys
 
-__Press V:__ to see the viewport within which visuals are projected. Useful when going fullscreen on unusual aspect ratios and need to calibrate the projector.
-__Press T:__ to see again titles after they disappear. Pressing notes again will make them fade away.
+* __Press V:__ to see the viewport within which visuals are projected. Useful when going fullscreen on unusual aspect ratios and need to calibrate the projector.
+* __Press T:__ to see again titles after they disappear. Pressing notes again will make them fade away.
 
 
 
