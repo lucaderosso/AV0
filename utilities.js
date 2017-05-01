@@ -18,7 +18,7 @@ myMatrix.dim = [1280, 1024];
 
 var myWindow = new JitterObject("jit.window", "video-window"); //
 myWindow.floating = 0;
-myWindow.size = [540, 1080];
+myWindow.size = [500, 1000];
 myWindow.pos = [0, 0];
 myWindow.fsaa = 1;
 myWindow.floating = 1;
@@ -54,7 +54,7 @@ myGrid.shape = "plane";
 myGrid.gl_color = [0.8, 0.8, 0.8, 0.1]; 
 myGrid.gridmode = 0;
 myGrid.poly_mode = 2;
-myGrid.point_size = 20;
+myGrid.point_size = 4;
 myGrid.line_width = 2; // set to 2 when using projectors;
 
 
@@ -218,6 +218,8 @@ function assignScreenResolution(width, height){
 	// these values are used for calculations in the following methods
 	screenResolution[0] = width;
 	screenResolution[1] = height;
+	// update non-fullscreen window size 
+	myWindow.size = [width/2, height/2];
 	calculateSizesForViewPort();
 	scaleSketch();
 }
@@ -330,7 +332,7 @@ function viewPort(){
 	// check if viewPort has been requested (1) or not (0)
 	if(viewPortStatus == 1){
 		// when visible the quads masking outer area are colored in transparent green
-		mySketch.glcolor(0, 1, 0, 0.1);
+		mySketch.glcolor(1, 0.45, 0.47, 0.5);
 		myRender.axes = 1;
 		myGrid.poly_mode = 1;
 		myGrid.point_size = 2;
@@ -340,7 +342,7 @@ function viewPort(){
 		mySketch.glcolor(0, 0, 0, 1);
 		myRender.axes = 0;
 		myGrid.poly_mode = 2;
-		myGrid.point_size = 20;		
+		myGrid.point_size = 4;		
 	}
 	// check if viewPort height is smaller than widht
 	if(heightRatio < 1){

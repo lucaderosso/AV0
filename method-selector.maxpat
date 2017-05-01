@@ -56,9 +56,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 84.000008, 785.333374, 135.0, 22.0 ],
+					"patching_rect" : [ 84.000008, 785.333374, 155.0, 22.0 ],
 					"style" : "",
-					"text" : "if $i1 > 0 then 1. else 0."
+					"text" : "if $i1 > 0 then 1. else 0.275"
 				}
 
 			}
@@ -502,7 +502,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 198.5, 704.0, 29.0, 17.0 ],
+					"patching_rect" : [ 195.5, 706.0, 29.0, 17.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 2.583333, 2.083335, 26.0, 17.0 ],
 					"style" : "",
@@ -515,13 +515,13 @@
 , 			{
 				"box" : 				{
 					"angle" : 270.0,
-					"bgcolor" : [ 0.27451, 0.27451, 0.27451, 1.0 ],
+					"bgcolor" : [ 0.275, 0.27451, 0.27451, 1.0 ],
 					"id" : "obj-11",
 					"maxclass" : "panel",
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 84.000008, 865.0, 128.0, 128.0 ],
+					"patching_rect" : [ 84.000008, 866.0, 128.0, 128.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 0.583333, 0.583335, 30.0, 20.0 ],
 					"proportion" : 0.39,
