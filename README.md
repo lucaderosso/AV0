@@ -43,64 +43,76 @@ In this section I'll explain how the Live Set mentioned in the *Getting Started*
 
 #### AV0
 
-![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_av0.jpg)
+![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/detail_av0.jpg)
 
 this is the main device responsible for generating and controlling visuals and the piece's length. For more information on this device see the section *The AV0 Device.
 
 #### Sounds
 
-![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_sounds.jpg)
+![Detail Sound](https://github.com/lucaderosso/AV0/blob/master/images/detail_sounds.jpg)
 
 a drum rack with some sounds. This device plus the AV0 device are make the bare bones for connecting visuals to sounds. One thing to mention here is the presence of an operator
 
 #### Effects
 
-![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_effects.jpg)
+![Detail Effects](https://github.com/lucaderosso/AV0/blob/master/images/detail_effects.jpg)
 
 currently AV0 has 3 simple effects, such as *Opacity*, *Decay* and *Audio Feed*. By themselves these effect have only an impact on the visuals, so combining them with audio effects help bringing the whole thing to life. That's why all these devices are grouped inside the *AV0 Group*, so Macro controlers can be used to controll both visuals' and audio's effects.
 
 #### Levels
 
-![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_levels.jpg)
+![Detail Levels](https://github.com/lucaderosso/AV0/blob/master/images/detail_levels.jpg)
 
 this device touches a little explored concept of feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
 
 
 #### Mind the BPM
 
-![overview](https://github.com/lucaderosso/AV0/blob/master/images/tempo.jpg)
+![Tempo](https://github.com/lucaderosso/AV0/blob/master/images/tempo.jpg)
 
 Before telling more about the devices in the set I'd like to point your attention on the BPM set at 220bpm. There are reasons based on my personal style I won't get into. But you should know that the lower the tempo the slower the visuals will be updated. At 4/4 tempo, 220bpm means that each beat is fired at a spead slighlty higher than 1/64th of a second. The AV0 device uses half of that speed with a metro set on 32n. So in short if you want to use this device at slower tempos you would have to change that metro value inside the timer.maxpat file.
 
 
 # The AV0 Device
 
-[image of AV0 device]
+![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/detail_av0.jpg)
 
 As you probalby noticed the AV0 device's UI is divided in several areas. I'll proceed explaining what each of this area does, from left to right.
 
 __1 • Made JS edits?__
 
+![Compiler](https://github.com/lucaderosso/AV0/blob/master/images/dev_01.jpg)
+
 This function allows you to recompile the JS code in case you made some changes. The file *main.js*, which has autowatch property set to 1 shouldn't need this action, but any change to all other files requires to compile the JS.
 
 __2 • Input Inspector__
+
+![Input Inspector](https://github.com/lucaderosso/AV0/blob/master/images/dev_02.jpg)
 
 MAPPING MAPPING MAPPING MAPPING MAPPING PADSSSSSSSSSAH!!
 Used for tesigng and debugging. At a surface level this section's purpose is to show what pad is being pressed and with which velocity.
 
 __3 • Output Setup__
 
+![Output Setup](https://github.com/lucaderosso/AV0/blob/master/images/dev_03.jpg)
+
 This is where you indicate the Output resolution of the screen or projector you are using, and the viewport aspect ratio you desire to cut out for your visuals. To see the viewport mask hit *V key* while either the window or the AV0 device are on focus and playback is on.
 
 __4 • Window__
+
+![Window](https://github.com/lucaderosso/AV0/blob/master/images/dev_04.jpg)
 
 This allows to set some of the window's properties. Useful when you're reharsaling and don't need or want to connect a second screen or you're preparing audio material and want to hide the visuals.
 
 __5 • Controls__
 
+![Controls](https://github.com/lucaderosso/AV0/blob/master/images/dev_05.jpg)
+
 This area is highly unexplored. Current available effects are *Opacity*, which sets element's transarency, *Audio Feed* which enables audio signal to impact on the grid's color intensity, *Decay* which sets the ease and lifespan of elements (0: snappy moves and sudden fade, 127: slow moves and long fading). All other controls are hooked up in Max and in the JS but they currently do nothing.
 
 __6 • Timer__
+
+![Timer](https://github.com/lucaderosso/AV0/blob/master/images/dev_06.jpg)
 
 This is the part that enables the fun and upredictable collaboration bethween human andcomputer. When activated, the AV0 device will link the countdown represented by the progress bar ad teh bottom of the window, to the live set and the visuals. Once the time is up, Timer will stop all playing sounds, it will generate a new sets of visuals and block incoming MIDI messages for 3 seconds.
 
