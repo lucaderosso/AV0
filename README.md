@@ -21,7 +21,7 @@ If you want to learn more about the concept behind AV0 you can do so [on my webs
 This project was developed as a tool for myself and it therefore still lacks lots of the packaging that would make easy for someone to hit download and integrate it in their set.
 To get you started as fast as possible I decided the best route was to share a Live Set already setup where you should be able to see what it does instead of reading a list of instructions.
 
-1. __Download__ and launch [this Live Set](www.lucaderosso.com/r/r_av0-live-template.html) which comes with a pre set track including all you need to try it.
+1. __Download__ and launch [this Live Set](http://www.lucaderosso.com/r/r_av0-live-template.html) which comes with a pre set track including all you need to try it.
 2. __Hit Play —__ Activating Live's playback also tells the visuals to be drawn.
 3. __Play —__ play notes (from E2 to G3) or launch the Demo clip to see visuals and hear sounds.
 
