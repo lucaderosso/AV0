@@ -1,4 +1,4 @@
-![hero](https://github.com/lucaderosso/AV0/blob/master/images/hero.png)
+![hero](https://github.com/lucaderosso/AV0/blob/master/images/hero.jpg)
 
 # AV0
 
