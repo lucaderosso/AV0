@@ -2,9 +2,6 @@
 
 AV0 is an exploration on live human-computer collaboration in the field of audio visual, dedicated to anyone believing in computers as partners in the creative flow. 
 
-If you want to learn more about the concept behind AV0 you can do so [on my website](http://www.lucaderosso.com).
-
-
 ##### About the develomplent
 
 The project was started in September 2016 with the initial desire to make a piece to tour to venues. During its development however, I realized the project was introducing a new perspective on performing audio visuals, and that the device I was building could become an expandable framework on top of which one would build their own set.
@@ -13,6 +10,8 @@ My plan is to keep refining it, and my dream is to do this with anyone else want
 ##### About this documentation
 
 This documentation provides a very high level overview of the code you'll find in this repository. It should be enough to provide an idea of what is goin on here and quickly offer anyone with Live the chance to try my work. Time is little, things to say are many, and I did an extreme selection of information to get you started. I'm sure there are plenty of important things I forgot to include, if so, the very first of you who will send some feedback will be fundamental in filing the rough edges of this material.
+
+If you want to learn more about the concept behind AV0 you can do so [on my website](http://www.lucaderosso.com).
 
 
 # Getting Started
@@ -33,44 +32,41 @@ If this still doesn't work feel free to point that out here or DM me via [Facebo
 
 
 # About the live set
-In this section I'll explain how the Live Set mentioned in the *Getting Started* section is setup. For starters the following image should represent what you see after launching it.
 
 ![overview](https://github.com/lucaderosso/AV0/blob/master/images/overview.jpg)
 
-The fous of this section is on the *Demo Track's* detail view, which looks as following.
+In this section I'll explain how the Live Set mentioned in the *Getting Started* section is setup. For starters the image above shows what you should see after launching it.<br> The focus of this section is on the *Demo Track's* detail view, which looks as following. Here you should see one big device called *AV0 Group* where I grouped together the following devices:
 
-[image of the track's detail view]
 
-Here you should see one big device called *AV0 Group* where I grouped together the following devices:
 
 #### AV0
 
-[image of av0]
+![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_av0.jpg)
 
 this is the main device responsible for generating and controlling visuals and the piece's length. For more information on this device see the section *The AV0 Device.
 
 #### Sounds
 
-[image of sounds]
+![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_sounds.jpg)
 
 a drum rack with some sounds. This device plus the AV0 device are make the bare bones for connecting visuals to sounds. One thing to mention here is the presence of an operator
 
 #### Effects
 
-[image of effects]
+![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_effects.jpg)
 
 currently AV0 has 3 simple effects, such as *Opacity*, *Decay* and *Audio Feed*. By themselves these effect have only an impact on the visuals, so combining them with audio effects help bringing the whole thing to life. That's why all these devices are grouped inside the *AV0 Group*, so Macro controlers can be used to controll both visuals' and audio's effects.
 
 #### Levels
 
-[image of levels]
+![overview](https://github.com/lucaderosso/AV0/blob/master/images/detail_levels.jpg)
 
 this device touches a little explored concept of feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
 
 
 #### Mind the BPM
 
-[image of tempo]
+![overview](https://github.com/lucaderosso/AV0/blob/master/images/tempo.jpg)
 
 Before telling more about the devices in the set I'd like to point your attention on the BPM set at 220bpm. There are reasons based on my personal style I won't get into. But you should know that the lower the tempo the slower the visuals will be updated. At 4/4 tempo, 220bpm means that each beat is fired at a spead slighlty higher than 1/64th of a second. The AV0 device uses half of that speed with a metro set on 32n. So in short if you want to use this device at slower tempos you would have to change that metro value inside the timer.maxpat file.
 
