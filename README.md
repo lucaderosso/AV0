@@ -1,11 +1,14 @@
 # AV0
 
-AV0 is an exploration on live human-computer collaboration in the field of audio visual, dedicated to anyone believing in computers as partners in the creative flow.
+AV0 is an exploration on live human-computer collaboration in the field of audio visual, dedicated to anyone believing in computers as partners in the creative flow. 
 
-##### About the project
+If you want to learn more about the concept behind AV0 you can do so [on my website](http://www.lucaderosso.com).
 
-The project was started in September 2016 with the initial desire to make a piece to tour to venues. During its development however, I realized I was introducing my own perspective on performing audio visuals, and building something that was getting closer to an expandable framework rather than a set piece.
-If you want to learn more about the concept behind AV0 you can do so on my website here.
+
+##### About the develomplent
+
+The project was started in September 2016 with the initial desire to make a piece to tour to venues. During its development however, I realized the project was introducing a new perspective on performing audio visuals, and that the device I was building could become an expandable framework on top of which one would build their own set.
+My plan is to keep refining it, and my dream is to do this with anyone else wants to help.
 
 ##### About this documentation
 
@@ -19,7 +22,7 @@ To get you started as fast as possible I decided the best route was to share a L
 
 1. __Download__ and launch this Live Set which comes with a pre set track including all you need to try it.
 2. __Hit Play —__ visuals drawing firing is linked to live's transport. Activating Live's playback also tells the visuals to be drawn.
-3. __Play —__ launch the Demo clip or play notes (from E2 to G3) to see visuals and hear sounds.
+3. __Play —__ play notes (from E2 to G3) or launch the Demo clip to see visuals and hear sounds.
 
 And that should be enough to get you hooked a little, hopefully.
 
@@ -32,7 +35,7 @@ If this still doesn't work feel free to point that out here or DM me via [Facebo
 # About the live set
 In this section I'll explain how the Live Set mentioned in the *Getting Started* section is setup. For starters the following image should represent what you see after launching it.
 
-[live screenshot]
+![overview](https://github.com/lucaderosso/AV0/blob/master/images/overview.jpg)
 
 The fous of this section is on the *Demo Track's* detail view, which looks as following.
 
@@ -84,6 +87,7 @@ This function allows you to recompile the JS code in case you made some changes.
 
 __2 • Input Inspector__
 
+MAPPING MAPPING MAPPING MAPPING MAPPING PADSSSSSSSSSAH!!
 Used for tesigng and debugging. At a surface level this section's purpose is to show what pad is being pressed and with which velocity.
 
 __3 • Output Setup__
