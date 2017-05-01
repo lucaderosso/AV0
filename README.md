@@ -1,3 +1,5 @@
+![hero](https://github.com/lucaderosso/AV0/blob/master/images/hero.png)
+
 # AV0
 
 AV0 is an exploration on live human-computer collaboration in the field of audio visual, dedicated to anyone believing in computers as partners in the creative flow. 
