@@ -149,16 +149,21 @@ There is a total of four layers each of which has a different grid subdivision a
 <br>
 # Mapping
 In this section I'll explain how MIDI notes are mapped to visuals.<br>My controller of choice for using Live is Ableton Push 2, which means that the design and development process was sort of *naturally* affected by this preference. Specifically in taking advantage of the 64 pads grid and limiting, although I used only few of them, my controls to 8 knobs. I'll therefore reference this controller, usign some illustration from Ableton, to explain how pads are mapped. The translation to any other MIDI controller should be straigth forward.
-
+<br>
+<br>
 ![Push](https://github.com/lucaderosso/AV0/blob/master/images/mapping_000.jpg)
-
+<br>
+<br>
 The illustration above shows, on the left, Push's pads grid, and on the right, you can see the macro sections in which I divided it. If we take one of this sections (image below) you can see how each bank of 16 pads represents 4 layers (L1, L2, L3, L4) consisting in a row of pads; and 4 actions (A1, A2, A3, A4) assigned vertically for each column.
-
+<br>
+<br>
 ![Pads](https://github.com/lucaderosso/AV0/blob/master/images/mapping_001.jpg)
-
+<br>
+<br>
 As you might have figured, if you read the part titled *Grids and Layers* each row of four pads launches actions for each of the four layers. <br> There are four actions for each layer and their behavior is currently very simple. However the JS and MaxForLive patches allows to expand of these actions and have the AV0 device choosing from a selection of them every time a new piece and set of visuals is generated. If you whish to expand these actions the three files you should look at are *method-selector.maxpat* which can select a random action for every piece, *actions.txt* which tells the device what are all actions available, and *elements.js* where methods are called.
 Lastly please keep in mind that no all pads are mapped but only those going from MIDI note 4 to 115, this allows for 7 banks of 16 pads each. MIDI note 127 is used to generate the high pitch sound used to signal the generation of a new piece. See image below for reference.
-
+<br>
+<br>
 ![Notes](https://github.com/lucaderosso/AV0/blob/master/images/mapping_002.jpg)
 <br>
 <br>
