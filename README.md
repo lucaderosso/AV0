@@ -140,9 +140,9 @@ The cell defines  where the element will be positioned, its maximum size and the
 There is a total of four layers each of which has a different grid subdivision and can therefore host different types of visuals, quantity and size.
 
 ![Layers](https://github.com/lucaderosso/AV0/blob/master/images/grid_v0_02.png)
-
-
-
+<br>
+<br>
+<br>
 # Files in This Repo
 Simply a list of all the files you'll find in this repository, and a brief description on what they do. Please note: give its very alpha stage most if not all of the following files might look like they are offering functionalities that are not used or some method might look as designed to be apparently uselessly scalable. The hope of course is to fullly elaborate all of them soon.
 
