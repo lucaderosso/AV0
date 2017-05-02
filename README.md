@@ -73,7 +73,7 @@ This device touches a little explored concept of feeding filtered audio signal v
 
 ![Mental Model](https://github.com/lucaderosso/AV0/blob/master/images/mental-model.jpg)
 
-Image above shows a diagram go how the different elements in the demo Live Set interact with each other. The AV0 device works as a MIDI through while it uses MIDI input to send commands to the JS object and generate the visuals.
+Image above shows a diagram go how the different elements in the demo Live Set interact with each other. The AV0 device works as a MIDI through while it uses MIDI input to send commands to the JS object and generate the visuals.<br>Also the Levels device works as a throughput, but in this case for audio and it sends back collected values to AV0.
 <br>
 <br>
 #### Mind the BPM
