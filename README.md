@@ -79,7 +79,7 @@ Before telling more about the devices in the set I'd like to point your attentio
 <br>
 # The AV0 Device
 
-![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/detail_av0.jpg)
+![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/dev_000.jpg)
 
 As you probalby noticed the AV0 device's UI is divided in several areas. I'll proceed explaining what each of this area does, from left to right.
 <br>
@@ -88,7 +88,7 @@ __1 • Made JS edits?__
 
 ![Compiler](https://github.com/lucaderosso/AV0/blob/master/images/dev_001.jpg)
 
-This function allows you to recompile the JS code in case you made some changes. The file *main.js*, which has autowatch property set to 1 shouldn't need this action, but any change to all other files requires to compile the JS.
+This function allows you to recompile the JS code in case you made some changes. The file *main.js*, which has autowatch property set to 1 shouldn't need this action, but any change to all other files requires to compile the JS. The reason why I put this and the following section at the very left is to make them more easily accessible while developing the device, eventually they should not even be visible at all.
 <br>
 <br>
 __2 • Input Inspector__
