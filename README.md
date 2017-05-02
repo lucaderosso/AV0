@@ -45,7 +45,7 @@ In this section I'll go over the setup of the Live Set mentioned in the *Getting
 
 ![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/detail_001.jpg)
 
-this is the main device responsible for generating and controlling visuals. For more information on this device see the section below called *The AV0 Device*.
+This is the main device responsible for generating and controlling visuals. For more information on this device see the section below called *The AV0 Device*.
 <br>
 <br>
 #### Sounds
@@ -59,14 +59,21 @@ This is just a drum rack with some sounds. This device plus the AV0 device make 
 
 ![Detail Effects](https://github.com/lucaderosso/AV0/blob/master/images/detail_003.jpg)
 
-currently AV0 has 3 simple effects, such as *Opacity*, *Decay* and *Audio Feed*. By themselves these effect have only an impact on the visuals, so combining them with audio effects help bringing the whole thing to life. That's why all these devices are grouped inside the *AV0 Group*, so Macro controlers can be used to controll both visuals' and audio's effects.
+Currently AV0 has 3 simple effects, such as *Opacity*, *Decay* and *Audio Feed*. By themselves these effect have only an impact on the visuals, so combining them with audio effects help bringing the whole thing to life. That's why all these devices are grouped inside the *AV0 Group*, so Macro controlers can be used to controll both visuals' and audio's effects.
 <br>
 <br>
 #### Levels
 
 ![Detail Levels](https://github.com/lucaderosso/AV0/blob/master/images/detail_004.jpg)
 
-this device touches a little explored concept of feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
+This device touches a little explored concept of feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
+<br>
+<br>
+#### Mental Model
+
+![Mental Model](https://github.com/lucaderosso/AV0/blob/master/images/mental-model.jpg)
+
+Image above shows a diagram go how the different elements in the demo Live Set interact with each other. The AV0 device works as a MIDI through while it uses MIDI input to send commands to the JS object and generate the visuals.
 <br>
 <br>
 #### Mind the BPM
