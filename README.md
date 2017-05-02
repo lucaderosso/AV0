@@ -71,7 +71,7 @@ this device touches a little explored concept of feeding filtered audio signal v
 <br>
 #### Mind the BPM
 
-![Tempo](https://github.com/lucaderosso/AV0/blob/master/images/tempo.jpg)
+![Tempo](https://github.com/lucaderosso/AV0/blob/master/images/bpm.jpg)
 
 Before telling more about the devices in the set I'd like to point your attention on the BPM set at 220bpm. There are reasons based on my personal style I won't get into. But you should know that the lower the tempo the slower the visuals will be updated. At 4/4 tempo, 220bpm means that each beat is fired at a spead slighlty higher than 1/64th of a second. The AV0 device uses half of that speed with a metro set on 32n. So in short if you want to use this device at slower tempos you would have to change that metro value inside the timer.maxpat file.
 <br>
