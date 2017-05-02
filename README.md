@@ -52,7 +52,7 @@ this is the main device responsible for generating and controlling visuals. For 
 
 ![Detail Sound](https://github.com/lucaderosso/AV0/blob/master/images/detail_sounds.jpg)
 
-a drum rack with some sounds. This device plus the AV0 device are make the bare bones for connecting visuals to sounds. One thing to mention here is the presence of an operator
+This is just a drum rack with some sounds. This device plus the AV0 device make the bare bones for connecting visuals to sounds. One thing to mention here is the presence of an operator
 <br>
 <br>
 #### Effects
@@ -86,14 +86,14 @@ As you probalby noticed the AV0 device's UI is divided in several areas. I'll pr
 <br>
 __1 • Made JS edits?__
 
-![Compiler](https://github.com/lucaderosso/AV0/blob/master/images/dev_01.jpg)
+![Compiler](https://github.com/lucaderosso/AV0/blob/master/images/dev_001.jpg)
 
 This function allows you to recompile the JS code in case you made some changes. The file *main.js*, which has autowatch property set to 1 shouldn't need this action, but any change to all other files requires to compile the JS.
 <br>
 <br>
 __2 • Input Inspector__
 
-![Input Inspector](https://github.com/lucaderosso/AV0/blob/master/images/dev_02.jpg)
+![Input Inspector](https://github.com/lucaderosso/AV0/blob/master/images/dev_002.jpg)
 
 MAPPING MAPPING MAPPING MAPPING MAPPING PADSSSSSSSSSAH!!
 Used for tesigng and debugging. At a surface level this section's purpose is to show what pad is being pressed and with which velocity.
@@ -101,28 +101,28 @@ Used for tesigng and debugging. At a surface level this section's purpose is to 
 <br>
 __3 • Output Setup__
 
-![Output Setup](https://github.com/lucaderosso/AV0/blob/master/images/dev_03.jpg)
+![Output Setup](https://github.com/lucaderosso/AV0/blob/master/images/dev_003.jpg)
 
 This is where you indicate the Output resolution of the screen or projector you are using, and the viewport aspect ratio you desire to cut out for your visuals. To see the viewport mask hit *V key* while either the window or the AV0 device are on focus and playback is on.
 <br>
 <br>
 __4 • Window__
 
-![Window](https://github.com/lucaderosso/AV0/blob/master/images/dev_04.jpg)
+![Window](https://github.com/lucaderosso/AV0/blob/master/images/dev_004.jpg)
 
 This allows to set some of the window's properties. Useful when you're reharsaling and don't need or want to connect a second screen or you're preparing audio material and want to hide the visuals.
 <br>
 <br>
 __5 • Controls__
 
-![Controls](https://github.com/lucaderosso/AV0/blob/master/images/dev_05.jpg)
+![Controls](https://github.com/lucaderosso/AV0/blob/master/images/dev_005.jpg)
 
 This area is highly unexplored. Current available effects are *Opacity*, which sets element's transarency, *Audio Feed* which enables audio signal to impact on the grid's color intensity, *Decay* which sets the ease and lifespan of elements (0: snappy moves and sudden fade, 127: slow moves and long fading). All other controls are hooked up in Max and in the JS but they currently do nothing.
 <br>
 <br>
 __6 • Timer__
 
-![Timer](https://github.com/lucaderosso/AV0/blob/master/images/dev_06.jpg)
+![Timer](https://github.com/lucaderosso/AV0/blob/master/images/dev_006.jpg)
 
 This is the part that enables the fun and upredictable collaboration bethween human andcomputer. When activated, the AV0 device will link the countdown represented by the progress bar ad teh bottom of the window, to the live set and the visuals. Once the time is up, Timer will stop all playing sounds, it will generate a new sets of visuals and block incoming MIDI messages for 3 seconds. This will most likely leave you in your underwear on the stage, hence the icon.
 <br>
