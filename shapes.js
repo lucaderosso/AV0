@@ -177,15 +177,15 @@ Shape.prototype.display = function(){
 		//––––––––––-–
 
         case "CUB_00A": 
-			//plane centered scaling both directions
-		    mySketch.glpushmatrix();
+        	//plane centered scaling both directions
+			mySketch.glpushmatrix();
 		    mySketch.shapeorient(0, 0, 0);
 		    mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
-	    	mySketch.moveto(0, 0, 0);
+		    mySketch.moveto(0, 0, 0);
 	    	mySketch.glrotate(this.rotation, 0, 1, 0);
-			mySketch.glscale(1, this.scale.y, 1);
+	    	mySketch.glscale(1, this.scale.y, 1);
 			mySketch.cube(this.width, this.height, 0.01);
-        	mySketch.glpopmatrix();
+			mySketch.glpopmatrix();
         break;
 
         case "CUB_00B":
