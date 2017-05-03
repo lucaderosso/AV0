@@ -1,11 +1,34 @@
-// Luca De Rosso
-// http://www.lucaderosso.com/
+/* --------------------------------------------------------------------
 
-// Instagram: @lucaderosso
-// Twitter: @lucaderosso
-// Facebook: facebook.com/derossoluca
-// Pinterest: pinterest.com/lucaderosso
-// Github:
+AV0 — Human-computer collaboration in the audio visual field
+Copyright (C) 2017 Luca De Rosso
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+
+-----------------------------------------------------------------------
+
+Author: Luca De Rosso
+Website: http://www.lucaderosso.com/
+
+Instagram: @lucaderosso
+Twitter: @lucaderosso
+Facebook: facebook.com/derossoluca
+Pinterest: pinterest.com/lucaderosso
+Github: https://github.com/lucaderosso/AV0
+
+---------------------------------------------------------------------*/
 
 
 
@@ -27,7 +50,6 @@ myWindow.fullscreen = 0;
 myWindow.usedstrect = 1;
 myWindow.depthbuffer = 0; // to enable transparency
 myWindow.fsmenubar = 0;
-// myWindow.colormode = "uyvy";
 
 var myRender = new JitterObject("jit.gl.render", "video-window");
 myRender.erase_color = [0, 0, 0, 1]; // change last value to set background opacity
@@ -47,7 +69,7 @@ mySketch.antialias = 1;
 // ————
 
 // this could throw you off. 
-// myGrid is not the actual grid on which elements are positioned but rather another element used to visualize lines matching the characteristics of the grid's values calculated gird in newGrid() 
+// myGrid is not the actual grid on which shapes are positioned but rather another shape used to visualize lines matching the characteristics of the grid's values calculated gird in newGrid() 
 var myGrid = new JitterObject("jit.gl.gridshape", "video-window");
 myGrid.blend_enable = 1; //because we are working with transparency
 myGrid.shape = "plane";
@@ -87,7 +109,7 @@ var verticalRes;
 // CLASSES
 // ———————
 
-// Vector class used to position and move elements
+// Vector class used to position and move shapes
 var Vector = {
 	x: 0.0,
 	y: 0.0,
@@ -123,17 +145,17 @@ var Color = {
 
 // The Layer object is used to host all shapes generated for each layer  
 function Layer() {
-	this.elements = [];
+	this.shapes = [];
 	this.sustain = false;
 	this.drawing = false;
 }
 
 Layer.prototype.toDraw = function(){
 	// this method returns a boolean that is then used in the draw() method 
-	// in main.js to decide wether or not the layer's elements have to be drawn
-	if(this.elements.length > 0){
+	// in main.js to decide wether or not the layer's shapes have to be drawn
+	if(this.shapes.length > 0){
 		// check if lifespan is > 0 to update the value of this.drawing
-		this.checkIfElementsAreFading();
+		this.checkIfShapesAreFading();
 		// define wether or not it this layer should be drawn
 		if(this.sustain == true || this.drawing == true){
 			return true;
@@ -143,11 +165,11 @@ Layer.prototype.toDraw = function(){
 	}
 }
 
-Layer.prototype.checkIfElementsAreFading = function(){
+Layer.prototype.checkIfShapesAreFading = function(){
 	// not the most efficient way because it's checking all shapes (?!)
 	// consider breaking the loop if one condition is met (?!)
-	for(var i = 0; i < this.elements.length; i++){
-		if(this.elements[i].lifespan > 0){
+	for(var i = 0; i < this.shapes.length; i++){
+		if(this.shapes[i].lifespan > 0){
 			this.drawing = true;
 		} else {
 			this.drawing = false;
@@ -256,12 +278,12 @@ function assignViewPortAspectRatio(width, height){
 // INTERNAL METHODS: aka method that are not directly controlled by user input
 // ———————————————————————————————————————————————————————————————————————————
 
-// This method clears all elements for all layers
+// This method clears all shapes for all layers
 function clearAll() {
-	layer1.elements = [];
-	layer2.elements = [];
-	layer3.elements = [];
-	layer4.elements = [];
+	layer1.shapes = [];
+	layer2.shapes = [];
+	layer3.shapes = [];
+	layer4.shapes = [];
 }
 
 // This method calulates viewPorts bounds and sizes relatively to myWindow 

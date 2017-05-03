@@ -1,14 +1,34 @@
-// Luca De Rosso
-// http://www.lucaderosso.com/
+/* --------------------------------------------------------------------
 
-// Instagram: @lucaderosso
-// Twitter: @lucaderosso
-// Facebook: facebook.com/derossoluca
-// Pinterest: pinterest.com/lucaderosso
-// Github:
+AV0 — Human-computer collaboration in the audio visual field
+Copyright (C) 2017 Luca De Rosso
 
-// Things you will forget
-// 1.0 — always first check the array of shape is not empty otherwise it will give an error. remember every time a new scen starts the array is emptied and quickly populated again with the elements necessary for the current scene
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+
+-----------------------------------------------------------------------
+
+Author: Luca De Rosso
+Website: http://www.lucaderosso.com/
+
+Instagram: @lucaderosso
+Twitter: @lucaderosso
+Facebook: facebook.com/derossoluca
+Pinterest: pinterest.com/lucaderosso
+Github: https://github.com/lucaderosso/AV0
+
+---------------------------------------------------------------------*/
 
 
 
@@ -20,7 +40,7 @@ autowatch = 1; // so the [js] object in max wil recompile the code each time is 
 outlets = 2; // number of outlets for the [js] object
 
 include("utilities");
-include("elements");
+include("shapes");
 
 var layer1 = new Layer();
 var layer2 = new Layer();
@@ -109,20 +129,20 @@ function dialValue(dial, value){
 	}
 }
 
-// pads: sustain control to maintain elements on screen for as long as pad is pressed
+// pads: sustain control to maintain shapes on screen for as long as pad is pressed
 function checkSustain(layer, velocity){
 	updateSustainForLayer(layer, velocity);
 	// go get the right array for the layer I want to interact with
 	var array = getArrayForLayer(layer);	
 	// do the following only if the array is populated
 	if(array.length > 0){
-		// go through each element in the array
+		// go through each shape in the array
 		for(var i = 0; i < array.length; i++){
 			if(velocity > 0){
 				array[i].lifespan = newLifeSpan; // recover lifespan
 				array[i].fading = false; // don't fade as long as pad is pressed 
 			} else {
-				// if velocity is == 0 (aka pad no longer pressed) then start fading the element
+				// if velocity is == 0 (aka pad no longer pressed) then start fading the shape
 				array[i].fading = true;
 			}
 		}
@@ -162,10 +182,10 @@ function updateSustainForLayer(layer, velocity){
 	// this method updates a boolean value I can then use to decide
 	// wether or not sending drawing instruction for a specific layer
 	// to mySketch. That is because when shapse are not visible, 
-	// lifespan (aka opacity) is set to 0, but elements are still drawn.
+	// lifespan (aka opacity) is set to 0, but shapes are still drawn.
 	// In this way when a note's velocity is > 0, drawing commands are
-	// sent to mySketch and elements are drawn, else drawing commands are 
-	// blocked saving cpu when elements don't need to be shown
+	// sent to mySketch and shapes are drawn, else drawing commands are 
+	// blocked saving cpu when shapes don't need to be shown
 	var sustainStatus = velocity > 0 ? true : false;
 	
 	switch (layer){
@@ -280,27 +300,27 @@ function draw(){
 
 	// check if Layer has to be drawn
 	if(layer1.toDraw()){
-		// draw all elements  in layer
-		for(var i = 0; i < layer1.elements.length; i++){
-			layer1.elements[i].run();
+		// draw all shapes  in layer
+		for(var i = 0; i < layer1.shapes.length; i++){
+			layer1.shapes[i].run();
 		}
 	}
 
 	if(layer2.toDraw()){
-		for(var i = 0; i < layer2.elements.length; i++){
-			layer2.elements[i].run();
+		for(var i = 0; i < layer2.shapes.length; i++){
+			layer2.shapes[i].run();
 		}
 	}
 
 	if(layer3.toDraw()){
-		for(var i = 0; i < layer3.elements.length; i++){
-			layer3.elements[i].run();
+		for(var i = 0; i < layer3.shapes.length; i++){
+			layer3.shapes[i].run();
 		}
 	}
 
 	if(layer4.toDraw()){
-		for(var i = 0; i < layer4.elements.length; i++){
-			layer4.elements[i].run();
+		for(var i = 0; i < layer4.shapes.length; i++){
+			layer4.shapes[i].run();
 		}
 	}
 

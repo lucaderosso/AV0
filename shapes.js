@@ -1,48 +1,68 @@
-// Luca De Rosso
-// http://www.lucaderosso.com/
+/* --------------------------------------------------------------------
 
-// Instagram: @lucaderosso
-// Twitter: @lucaderosso
-// Facebook: facebook.com/derossoluca
-// Pinterest: pinterest.com/lucaderosso
-// Github:
+AV0 — Human-computer collaboration in the audio visual field
+Copyright (C) 2017 Luca De Rosso
 
-// NOTES:
-// Velocity is used in two ways:
-// 1 - to enable events throug conditionals. If Velocity is greater than 0 the method is executed
-// 2 - to create variation on the method that is being called. i.e.: different values can make things move faster or slower
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
 
-//==================
-//		General
-//==================
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+
+-----------------------------------------------------------------------
+
+Luca De Rosso
+http://www.lucaderosso.com/
+
+Instagram: @lucaderosso
+Twitter: @lucaderosso
+Facebook: facebook.com/derossoluca
+Pinterest: pinterest.com/lucaderosso
+Github: https://github.com/lucaderosso/AV0
+
+---------------------------------------------------------------------*/
+
+// ———————
+// GENERAL
+// ———————
 
 var positions = [-increment, increment];
 
 var decay = 255; // setting 255 (aka sudden decay) because it's my preffered starting setting
 
-//====================================
-//		Methods to manage allLayers
-//====================================
+
+
+// ———————————————————————————
+// Methods to manage allLayers
+// ———————————————————————————
 
 function prepareArrayForLayer(layer){	
 	var array = [];
 	
 	switch(layer){
 		case "layer1":
-			layer1.elements.length = 0;
-			array = layer1.elements;
+			layer1.shapes.length = 0;
+			array = layer1.shapes;
 		break;
 		case "layer2":
-			layer2.elements.length = 0;
-			array = layer2.elements;
+			layer2.shapes.length = 0;
+			array = layer2.shapes;
 		break;
 		case "layer3":
-			layer3.elements.length = 0;
-			array = layer3.elements;
+			layer3.shapes.length = 0;
+			array = layer3.shapes;
 		break;
 		case "layer4":
-			layer4.elements.length = 0;
-			array = layer4.elements;
+			layer4.shapes.length = 0;
+			array = layer4.shapes;
 		break;
 	    default:
 	}
@@ -54,16 +74,16 @@ function getArrayForLayer(layer){
 	var array = [];
 	switch(layer){
 		case "layer1":
-			array = layer1.elements;
+			array = layer1.shapes;
 		break;
 		case "layer2":
-			array = layer2.elements;
+			array = layer2.shapes;
 		break;
 		case "layer3":
-			array = layer3.elements;
+			array = layer3.shapes;
 		break;
 		case "layer4":
-			array = layer4.elements;
+			array = layer4.shapes;
 		break;
 	    default:
 	}
@@ -72,11 +92,11 @@ function getArrayForLayer(layer){
 
 
 
-//===========================
-//		Character Object
-//===========================
+// ————————————
+// Shape Object
+// ————————————
 
-function Character(xPos, yPos, leftBound, rightBound, bottomBound, topBound, type){	
+function Shape(xPos, yPos, leftBound, rightBound, bottomBound, topBound, type){	
 	this.flashing = false;
 	this.fading = true; // objects are all fading by default causing lifespan to decrease and disappear from the window
 	this.bouncing = false;
@@ -129,7 +149,7 @@ function Character(xPos, yPos, leftBound, rightBound, bottomBound, topBound, typ
 	this.color = Object.create(colorWhite);
 }
 
-Character.prototype.display = function(){
+Shape.prototype.display = function(){
 	// REMEMBER — From OpenGL Red Book:
 	// If you rotate the object first and then translate it, the rotated object appears on the x-axis.
 	// If you translate it down the x-axis first, and then rotate about the origin, the object is on the line y=x. 
@@ -549,7 +569,7 @@ Character.prototype.display = function(){
 	mySketch.glflush(); // you started testing glflush on jan 14, 2017 to see if it would increase performance.
 }
 
-Character.prototype.update = function(){	
+Shape.prototype.update = function(){	
 	if(this.moving){
 		this.location.x = this.easeValue(this.location.x, this.targetLocation.x, this.moving);
 		this.location.y = this.easeValue(this.location.y, this.targetLocation.y, this.moving);		
@@ -569,12 +589,12 @@ Character.prototype.update = function(){
 	}
 }
 
-Character.prototype.run = function(){
+Shape.prototype.run = function(){
 	this.update();
 	this.display();
 }
 
-Character.prototype.easeValue = function(start, end, easing){
+Shape.prototype.easeValue = function(start, end, easing){
 	// similar curve to a easeOutExpo	
 	var result = start + ((end - start) * this.ease);
 	if(Math.abs(end - start) < 0.0001) {
@@ -584,7 +604,7 @@ Character.prototype.easeValue = function(start, end, easing){
 	return result;
 }
 
-Character.prototype.checkBounds = function(xStep, yStep){
+Shape.prototype.checkBounds = function(xStep, yStep){
 	var x = xStep;
 	var y = yStep;
 
@@ -605,13 +625,13 @@ Character.prototype.checkBounds = function(xStep, yStep){
 
 
 
-//====================================
-//		Methods to add characters
-//====================================
+// ———————————————————————
+// Methods to add shapes
+// ———————————————————————
 
-function addCharactersToLayer(layer, x, y, leftBound, rightBound, bottomBound, topBound, t){
+function addShapesToLayer(layer, x, y, leftBound, rightBound, bottomBound, topBound, t){
 	// given that having a size of zero would make the shape invisible and therefore resul useless, I'm using 0 to enable randomization of size
-	layer.push(new Character(x, y, leftBound, rightBound, bottomBound, topBound, t));
+	layer.push(new Shape(x, y, leftBound, rightBound, bottomBound, topBound, t));
 }
 
 function checkColumns(columns, rows){
@@ -649,7 +669,7 @@ function genesis(layer, items, type, gridColumns, gridRows){
 	var bottomBounds = [];
 	var topBounds = [];
 
-	var cellsIndex = 0; // defines the starting cell in polulating a grid (eg: grid 2coll 2rows cellsIndex = 1, first element will be in the second cell - bottom right)
+	var cellsIndex = 0; // defines the starting cell in polulating a grid (eg: grid 2coll 2rows cellsIndex = 1, first shape will be in the second cell - bottom right)
 
 	// calculate x and y position for all items
 	for (var f = 0; f < rows; f++) {
@@ -684,30 +704,30 @@ function genesis(layer, items, type, gridColumns, gridRows){
 		cellsIndex = emptyCells / 2;
 	}
 
-	// populate array with elements
+	// populate array with shapes
 	for (var i = cellsIndex; i < (items + cellsIndex); i++) {
-		addCharactersToLayer(array, xCoordinates[i], yCoordinates[i], leftBounds[i], rightBounds[i], bottomBounds[i], topBounds[i], type);					
+		addShapesToLayer(array, xCoordinates[i], yCoordinates[i], leftBounds[i], rightBounds[i], bottomBounds[i], topBounds[i], type);					
 	}
 
 	// for (var i = totalCells; i >= (totalCells - items); i--) {
-	// 	addCharactersToLayer(array, xCoordinates[i], yCoordinates[i], leftBounds[i], rightBounds[i], bottomBounds[i], topBounds[i], type);					
+	// 	addShapesToLayer(array, xCoordinates[i], yCoordinates[i], leftBounds[i], rightBounds[i], bottomBounds[i], topBounds[i], type);					
 	// }
 }
 
 
 
-//=====================================
-//		Methods to move characters
-//=====================================
+// ————————————————————————
+// Methods to move shapes
+// ————————————————————————
 
 var newLifeSpan = 255;
 
 function assignLifeSpan(value){	
 	for(var i = 0; i < layers.length; i++){
 		if(layers[i].sustain == true){
-			for(var f = 0; f < layers[i].elements.length; f++){
+			for(var f = 0; f < layers[i].shapes.length; f++){
 				newLifeSpan = 255 * value;
-				layers[i].elements[f].lifespan = newLifeSpan;
+				layers[i].shapes[f].lifespan = newLifeSpan;
 			}
 		}
 	}
@@ -717,10 +737,10 @@ var newEase = 0.2;
 
 function assignEase(value){	
 	for(var i = 0; i < layers.length; i++){
-		for(var f = 0; f < layers[i].elements.length; f++){
+		for(var f = 0; f < layers[i].shapes.length; f++){
 			newEase = 1 - value;
 			newEase = newEase  == 0 ? 0.1 : newEase;
-			layers[i].elements[f].ease = newEase;
+			layers[i].shapes[f].ease = newEase;
 		}
 	}
 }
@@ -731,7 +751,7 @@ function newLocationTarget(layer, velocity, easeStatus, arrangement){
 	updateSustainForLayer(array, velocity);
 	// do the following only if the array is populated to avoid errors
 	if(array.length > 0){
-		// go through each element in the array
+		// go through each shape in the array
 		for(var i = 0; i < array.length; i++){
 			// here starts method's specific logic 
 			if (velocity > 0){	
@@ -770,7 +790,7 @@ function newRotationTarget(layer, velocity, easeStatus){
 	var array = getArrayForLayer(layer);
 	// do the following only if the array is populated to avoid errors
 	if(array.length > 0){
-		// go through each element in the array
+		// go through each shape in the array
 		for(var i = 0; i < array.length; i++){
 			// here starts method's specific logic 
 			if (velocity > 0){	
@@ -794,7 +814,7 @@ function newScaleTarget(layer, velocity, easeStatus, arrangement){
 	var array = getArrayForLayer(layer);
 	// do the following only if the array is populated to avoid errors
 	if(array.length > 0){
-		// go through each element in the array
+		// go through each shape in the array
 		for(var i = 0; i < array.length; i++){
 			// here starts method's specific logic 
 			if (velocity > 0){	
@@ -823,24 +843,24 @@ function newScaleTarget(layer, velocity, easeStatus, arrangement){
 }
 
 function updateLifeDecay(value){		
-	if(layer1.elements.length > 0){
-		for(var i = 0; i < layer1.elements.length; i++){
-			layer1.elements[i].lifeDecay = (1.01 - value) * 255;
+	if(layer1.shapes.length > 0){
+		for(var i = 0; i < layer1.shapes.length; i++){
+			layer1.shapes[i].lifeDecay = (1.01 - value) * 255;
 		}
 	}
-	if(layer2.elements.length > 0){
-		for(var i = 0; i < layer2.elements.length; i++){
-			layer2.elements[i].lifeDecay = (1.01 - value) * 255;
+	if(layer2.shapes.length > 0){
+		for(var i = 0; i < layer2.shapes.length; i++){
+			layer2.shapes[i].lifeDecay = (1.01 - value) * 255;
 		}
 	}
-	if(layer3.elements.length > 0){
-		for(var i = 0; i < layer3.elements.length; i++){
-			layer3.elements[i].lifeDecay = (1.01 - value) * 255;
+	if(layer3.shapes.length > 0){
+		for(var i = 0; i < layer3.shapes.length; i++){
+			layer3.shapes[i].lifeDecay = (1.01 - value) * 255;
 		}
 	}
-	if(layer4.elements.length > 0){
-		for(var i = 0; i < layer4.elements.length; i++){
-			layer4.elements[i].lifeDecay = (1.01 - value) * 255;
+	if(layer4.shapes.length > 0){
+		for(var i = 0; i < layer4.shapes.length; i++){
+			layer4.shapes[i].lifeDecay = (1.01 - value) * 255;
 		}
 	}
 }
