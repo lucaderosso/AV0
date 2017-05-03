@@ -190,16 +190,16 @@ Shape.prototype.display = function(){
 
         case "CUB_00B":
 	    	// creates bars where the bottom side is fixed and the top one scales
-		    mySketch.glpushmatrix();
-		    mySketch.shapeorient(0, 0, 0);
-		    mySketch.gltranslate(this.locationGenesis.x, (this.location.y + (this.scale.y * this.height) - this.height), 0); // position shape at location
+	    	mySketch.glpushmatrix();
+			mySketch.shapeorient(0, 0, 0);
+			mySketch.gltranslate(this.locationGenesis.x, (this.location.y + (this.scale.y * this.height) - this.height), 0); // position shape at location
 			mySketch.moveto(0, 0, 0);
 			mySketch.glrotate(this.rotation, 0, 1, 0);
 			//
 			mySketch.gldisable("line_stipple");
 			//
 			mySketch.cube(this.width, this.height * this.scale.y, 0.01); // putting scale.y here to avoid using glscale
-        	mySketch.glpopmatrix();
+			mySketch.glpopmatrix();
         break;
 
         case "CUB_10A": 
