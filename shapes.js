@@ -1,6 +1,7 @@
 /* --------------------------------------------------------------------
 
-AV0 — Human-computer collaboration in the audio visual field
+AV0 — A framework to experiment live human-computer collaboration in 
+the audio visual field
 Copyright (C) 2017 Luca De Rosso
 
 This program is free software; you can redistribute it and/or modify
@@ -19,8 +20,8 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
 
 -----------------------------------------------------------------------
 
-Luca De Rosso
-http://www.lucaderosso.com/
+Author: Luca De Rosso
+Website: http://www.lucaderosso.com/
 
 Instagram: @lucaderosso
 Twitter: @lucaderosso
@@ -29,6 +30,8 @@ Pinterest: pinterest.com/lucaderosso
 Github: https://github.com/lucaderosso/AV0
 
 ---------------------------------------------------------------------*/
+
+
 
 // ———————
 // GENERAL

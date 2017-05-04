@@ -1,6 +1,7 @@
 /* --------------------------------------------------------------------
 
-AV0 — Human-computer collaboration in the audio visual field
+AV0 — A framework to experiment live human-computer collaboration in 
+the audio visual field
 Copyright (C) 2017 Luca De Rosso
 
 This program is free software; you can redistribute it and/or modify
