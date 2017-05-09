@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 987.0, 79.0, 783.0, 1031.0 ],
+		"rect" : [ 497.0, 79.0, 908.0, 1031.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -38,14 +38,14 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-10",
+					"id" : "obj-26",
 					"maxclass" : "newobj",
-					"numinlets" : 5,
-					"numoutlets" : 5,
-					"outlettype" : [ "", "", "", "", "" ],
-					"patching_rect" : [ 41.5, 87.0, 390.0, 22.0 ],
+					"numinlets" : 3,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "bang", "" ],
+					"patching_rect" : [ 589.0, 519.0, 46.0, 22.0 ],
 					"style" : "",
-					"text" : "route layer family update-list pick-method"
+					"text" : "sel 0 1"
 				}
 
 			}
@@ -56,22 +56,63 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 84.000008, 822.0, 125.0, 22.0 ],
+					"patching_rect" : [ 602.5, 557.0, 129.0, 22.0 ],
+					"presentation_rect" : [ 712.0, 557.0, 0.0, 0.0 ],
 					"style" : "",
-					"text" : "bgfillcolor $1 $1 $1 1."
+					"text" : "textcolor 0.8 0.8 0.8 1."
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 595.5, 683.0, 133.0, 22.0 ],
+					"presentation_rect" : [ 594.0, 683.0, 0.0, 0.0 ],
+					"style" : "",
+					"text" : "textcolor 0.8 0.8 0.8 $1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-19",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"patching_rect" : [ 589.0, 484.0, 29.5, 22.0 ],
+					"style" : "",
+					"text" : "> 0"
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-13",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
+					"maxclass" : "message",
+					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 84.000008, 785.333374, 155.0, 22.0 ],
+					"patching_rect" : [ 589.0, 592.0, 123.0, 22.0 ],
 					"style" : "",
-					"text" : "if $i1 > 0 then 1. else 0.275"
+					"text" : "textcolor 0. 0. 0. 0.25"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 5,
+					"numoutlets" : 5,
+					"outlettype" : [ "", "", "", "", "" ],
+					"patching_rect" : [ 41.5, 87.0, 390.0, 22.0 ],
+					"style" : "",
+					"text" : "route layer family update-list pick-method"
 				}
 
 			}
@@ -168,13 +209,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-6",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 439.0, 92.0, 90.0, 33.0 ],
+					"patching_rect" : [ 439.0, 88.0, 90.0, 20.0 ],
 					"style" : "",
-					"text" : "Velocity value from push pad"
+					"text" : "Velocity values"
 				}
 
 			}
@@ -439,7 +479,7 @@
 					"presentation_rect" : [ 2.583333, 2.083335, 26.0, 17.0 ],
 					"style" : "",
 					"text" : "0",
-					"textcolor" : [ 0.0, 0.0, 0.0, 0.5 ],
+					"textcolor" : [ 0.0, 0.0, 0.0, 0.2 ],
 					"textjustification" : 1
 				}
 
@@ -447,13 +487,15 @@
 , 			{
 				"box" : 				{
 					"angle" : 270.0,
-					"bgcolor" : [ 0.275, 0.27451, 0.27451, 1.0 ],
+					"bgcolor" : [ 0.24, 0.24, 0.24, 1.0 ],
+					"border" : 1,
+					"bordercolor" : [ 0.0, 0.0, 0.0, 0.4 ],
 					"id" : "obj-11",
 					"maxclass" : "panel",
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 84.000008, 866.0, 128.0, 128.0 ],
+					"patching_rect" : [ 598.0, 865.0, 128.0, 128.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 0.583333, 0.583335, 30.0, 20.0 ],
 					"proportion" : 0.39,
@@ -469,6 +511,16 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"order" : 0,
+					"source" : [ "obj-10", 4 ]
 				}
 
 			}
@@ -538,6 +590,7 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"midpoints" : [ 422.0, 124.5, 175.0, 124.5 ],
+					"order" : 1,
 					"source" : [ "obj-10", 4 ]
 				}
 
@@ -553,7 +606,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-25", 0 ],
+					"destination" : [ "obj-4", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-13", 0 ]
@@ -599,6 +652,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-26", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-19", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -626,10 +688,28 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-11", 0 ],
+					"destination" : [ "obj-4", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-26", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-25", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-26", 1 ]
 				}
 
 			}
@@ -735,16 +815,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-13", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"order" : 2,
-					"source" : [ "obj-77", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-31", 3 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -833,7 +903,7 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "actions.txt",
-				"bootpath" : "~/Documents/_Projects/2016-09_s-av_AV0/downloads/live/AV0_template Project/Presets/MIDI Effects/Max MIDI Effect/Imported",
+				"bootpath" : "~/Documents/_Projects/2016-09_s-av_AV0/repository/AV0",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
