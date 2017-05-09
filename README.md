@@ -66,21 +66,21 @@ Currently AV0 has 3 simple effects, such as *Opacity*, *Decay* and *Audio Feed*.
 
 ![Detail Levels](https://github.com/lucaderosso/AV0/blob/master/images/detail_levels.jpg)
 
-This device touches a little explored concept of feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
+This device is a little exploration on feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
 <br>
 <br>
 #### Mental model
 
 ![Mental Model](https://github.com/lucaderosso/AV0/blob/master/images/mental-model.jpg)
 
-Image above shows a diagram go how the different elements in the demo Live Set interact with each other. The AV0 device works as a MIDI through while it uses MIDI input to send commands to the JS object and generate the visuals.<br>Also the Levels device works as a throughput, but in this case for audio and it sends back collected values to AV0.
+Image above shows a diagram go how the different elements in the demo Live Set interact with each other. The AV0 device works in Live as a MIDI through so that MIDI messages can be passed to the Live instruments positioned afterwards. In the meantime it uses the same MIDI input to send commands to the JS object and generate the visuals.<br>The Levels device works as a throughput for audio, and it sends back collected values to AV0 to affect visuals.
 <br>
 <br>
 #### Mind the BPM
 
 ![Tempo](https://github.com/lucaderosso/AV0/blob/master/images/bpm.jpg)
 
-Before telling more about the devices in the set I'd like to point your attention on the BPM set at 220bpm. There are reasons based on my personal style I won't get into. But you should know that the lower the tempo the slower the visuals will be updated. At 4/4 tempo, 220bpm means that each beat is fired at a spead slighlty higher than 1/64th of a second. The AV0 device uses half of that speed with a metro set on 32n. So in short if you want to use this device at slower tempos you would have to change that metro value inside the timer.maxpat file.
+Before telling more about the devices in the set I'd like to point your attention on the BPM set at 220bpm. There are reasons based on my personal style I won't get into. But you should know that the lower the tempo the slower the visuals will be updated. At 4/4 tempo, 220bpm means that each beat is fired at a spead slighlty higher than 1/64th of a second. The AV0 device uses half of that speed with a metro set on 32n. So if you want to use this device at a slower BPM you would have to change that metro value inside the timer.maxpat file.
 <br>
 <br>
 <br>
