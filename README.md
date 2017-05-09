@@ -43,28 +43,28 @@ In this section I'll go over the setup of the Live Set mentioned in the *Getting
 <br>
 #### AV0
 
-![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/detail_001.jpg)
+![Detail AV0](https://github.com/lucaderosso/AV0/blob/master/images/detail_av0.jpg)
 
 This is the main device responsible for generating and controlling visuals. For more information on this device see the section below called *The AV0 Device*.
 <br>
 <br>
 #### Sounds
 
-![Detail Sound](https://github.com/lucaderosso/AV0/blob/master/images/detail_002.jpg)
+![Detail Sounds](https://github.com/lucaderosso/AV0/blob/master/images/detail_sounds.jpg)
 
 This is just a drum rack with some sounds. This device plus the AV0 device make the bare bones for connecting visuals to sounds. One thing to mention here is the presence of an operator
 <br>
 <br>
 #### Effects
 
-![Detail Effects](https://github.com/lucaderosso/AV0/blob/master/images/detail_003.jpg)
+![Detail Effects](https://github.com/lucaderosso/AV0/blob/master/images/detail_effects.jpg)
 
 Currently AV0 has 3 simple effects, such as *Opacity*, *Decay* and *Audio Feed*. By themselves these effect have only an impact on the visuals, so combining them with audio effects help bringing the whole thing to life. That's why all these devices are grouped inside the *AV0 Group*, so Macro controlers can be used to controll both visuals' and audio's effects.
 <br>
 <br>
 #### Levels
 
-![Detail Levels](https://github.com/lucaderosso/AV0/blob/master/images/detail_004.jpg)
+![Detail Levels](https://github.com/lucaderosso/AV0/blob/master/images/detail_levels.jpg)
 
 This device touches a little explored concept of feeding filtered audio signal values into visuals using send and receive objects. All it does is letting the audio to pass through while grabbing signal's valuse to send to the AV0 device. The *Audio Feed* parameter on the AV0 device controls the amount of that value being passed to visuals.
 <br>
@@ -175,7 +175,7 @@ Lastly please keep in mind that no all pads are mapped but only those going from
 <br>
 <br>
 <br>
-# Files in this repo
+# Files in this repository
 Simply a list of all the files you'll find in this repository, and a brief description on what they do. Please note: give its very alpha stage most if not all of the following files might look like they are offering functionalities that are not used or some method might look as designed to be apparently uselessly scalable. The hope of course is to fullly elaborate all of them soon.
 
 #### MaxForLive files
