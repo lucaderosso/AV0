@@ -38,7 +38,6 @@ Github: https://github.com/lucaderosso/AV0
 // ———————
 
 var positions = [-increment, increment];
-
 var decay = 255; // setting 255 (aka sudden decay) because it's my preffered starting setting
 
 
@@ -297,7 +296,7 @@ Shape.prototype.display = function(){
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, (this.location.y + (this.scale.y * this.height) - this.height), 0); // position shape at location
 			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glrotate(this.rotation, 0, 1, 0);
 			//
 			mySketch.gldisable("line_stipple");
 			mySketch.shapeprim("lines");
@@ -309,12 +308,12 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "PL_a_12":
+		case "PL_b_12":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y, 0); // position shape at location
 			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glrotate(this.rotation * distort, 0, 1, 0);
 			//
 			mySketch.shapeprim("lines");
 			mySketch.shapeslice(4, 1);
@@ -330,65 +329,6 @@ Shape.prototype.display = function(){
 			mySketch.gllinewidth(2);
 			//
 			mySketch.plane(this.width, this.height); // putting scale.y here to avoid using glscale
-			mySketch.glpopmatrix();
-		break;
-
-		case "PL_b_12":
-			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y, 0); // position shape at location
-			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
-			//
-			mySketch.shapeprim("lines");
-			mySketch.shapeslice(3, 1);
-			mySketch.gldisable("line_stipple");
-			mySketch.gllinestipple(1, 255);
-			mySketch.gllinewidth(30);
-			mySketch.glpointsize(10);
-			mySketch.plane(this.width - increment, (this.height - increment) * this.scale.y); // putting scale.y here to avoid using glscale
-			//
-   //      	mySketch.glenable("line_stipple");
-			// mySketch.gllinestipple(1, 3855);
-			// mySketch.gllinewidth(2);
-			// mySketch.gllinewidth(30);
-			mySketch.glenable("line_stipple");
-			mySketch.gllinestipple(1, 128);
-
-			mySketch.glcolor(0, 0, 0, alpha / 8);
-			mySketch.plane(this.width - increment, (this.height - increment) * this.scale.y); // putting scale.y here to avoid using glscale
-			// mySketch.gllinewidth(2);
-			//
-			mySketch.glcolor(this.color.r, this.color.g, this.color.b, alpha / 8);
-			mySketch.plane(this.width - increment, this.height - increment); // putting scale.y here to avoid using glscale
-			mySketch.glpopmatrix();
-		break;
-
-		case "PL_c_12":
-			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0); // position shape at location
-			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
-			//
-			mySketch.shapeprim("lines");
-			mySketch.shapeslice(3, 1);
-			mySketch.gldisable("line_stipple");
-			mySketch.gllinestipple(1, 255);
-			mySketch.gllinewidth(30);
-			mySketch.glpointsize(10);
-			mySketch.plane(this.width - increment, (this.height / 8) * this.scale.y); // putting scale.y here to avoid using glscale
-			mySketch.glpopmatrix();
-
-			mySketch.glpushmatrix();
-			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y, 0);
-			mySketch.glenable("line_stipple");
-			mySketch.gllinestipple(1, 128);
-			// mySketch.gllinewidth(2);
-			//
-			mySketch.moveto(0, 0, 0);
-			mySketch.glcolor(this.color.r, this.color.g, this.color.b, alpha / 4);
-			mySketch.plane(this.width - increment, this.height - increment); // putting scale.y here to avoid using glscale
 			mySketch.glpopmatrix();
 		break;
 
