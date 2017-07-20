@@ -370,12 +370,13 @@ Shape.prototype.display = function(){
 		break;
 
 		case "HL_c_00":
-			// dsg aka double segment: similar to segment but it creates nice 45degrees compositions when rotating
+			// this creates nice 45degrees compositions when rotating
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
-			mySketch.glrotate(this.rotation/2, 0, 0, 1);
+			mySketch.gltranslate(this.locationGenesis.x * distort, this.locationGenesis.y, 0); // position shape at location
+			mySketch.glrotate((this.rotation/2) * this.rotationDirection, 0, 0, 1);
 			mySketch.glscale(this.scale.x, 1, 1);
-			mySketch.move(0, 0, 0);
+			// mySketch.move(0, 0, 0);
 			mySketch.linesegment(this.location.x - this.width, this.location.y, 0, this.location.x + this.width, this.location.y, 0);
 			mySketch.glrotate(this.rotation, 0, 0, 1);
 			mySketch.linesegment(this.location.x - this.width, this.location.y, 0, this.location.x + this.width, this.location.y, 0);
