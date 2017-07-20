@@ -159,7 +159,7 @@ Shape.prototype.display = function(){
 	// In general, the order of transformations is critical.
 	// Also:
 	// mySketch.moveto(0, 0, 0); is used below to center the composition on x,y 0,0.
-
+	var distort = (1 - (high * dial1));
 	var alpha = this.lifespan / 255.0;
 	mySketch.glcolor(this.color.r, this.color.g, this.color.b, alpha);
 	mySketch.gllinewidth(4);
@@ -175,11 +175,34 @@ Shape.prototype.display = function(){
 		// Notes on commands:
 		// - moveto(): if you don't want to use it to actually move objects, then add it to the shape and set it to 0,0,0 to restore the coordinate other shapes might have assigned 
 
+		// how to name
+
+		// first letters
+		// 	PLN = plane
+		// 	CUB = cube
+		// 	HLN = horizontal line
+		// 	VLN = vertical line
+
+		// the letter indicates variation on main behavior and they go like a, b, c, and so on.
+
+		// first digit 
+		// 	0 = solid
+		// 	1 = lines
+		// 	2 = dots
+		// 	3 = lines and dots
+		
+		// second digit
+		// 	0 = solid line
+		// 	1 = line_stipple
+		//  2 = both styles
+
+
+
 		//–––––––––––-
 		// Cube based
 		//––––––––––-–
 
-		case "CUB_00A": 
+		case "CU_a_00": 
 			//plane centered scaling both directions
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
@@ -191,7 +214,24 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "CUB_00B":
+		case "CU_a_10": 
+			//plane centered scaling both directions
+			mySketch.glpushmatrix();
+			mySketch.shapeorient(0, 0, 0);
+			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
+			mySketch.moveto(0, 0, 0);
+			mySketch.glrotate(this.rotation, 0, 1, 0);
+			mySketch.glscale(1, this.scale.y, 1);
+			//
+			mySketch.shapeslice(2, 1);
+			mySketch.shapeprim("lines");
+			mySketch.gllinewidth(4);
+			//
+			mySketch.cube(this.width, this.height, 0.01);
+			mySketch.glpopmatrix();
+		break;
+
+		case "CU_b_00":
 			// creates bars where the bottom side is fixed and the top one scales
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
@@ -205,63 +245,46 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "CUB_10A": 
-			//plane centered scaling both directions
-			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
-			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation + 45, 0, 1, 0);
-			mySketch.glscale(1, this.scale.y, 1);
-			//
-			mySketch.shapeslice(2, 1);
-			mySketch.shapeprim("lines");
-			mySketch.gllinewidth(2);
-			//
-			mySketch.cube(this.width, this.height, 0.01);
-			mySketch.glpopmatrix();
-		break;
+		//–––––––––––––––––
+		// Framequad based
+		//–––––––––––––––––
 
-		//––––––––––––-
-		// Plane based
-		//–––––––––––-–
-
-		// how to name
-
-		// first letters
-		// 	PLN = plane
-		// 	CUB = cube
-		// 	HLN = horizontal line
-		// 	VLN = vertical line
-
-		// first digit
-		// 	0 = solid
-		// 	1 = lines
-		// 	2 = dots
-		// 	3 = lines and dots
-		
-		// second digit
-		// 	0 = no line_stipple
-		// 	1 = line_stipple
-		//  2 = both styles
-		case "PLN____":
+		case "FQ_a_10":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
 			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glscale(this.scale.x, this.scale.y, 1);
 			mySketch.moveto(0, 0, 0);
 			//
 			mySketch.shapeslice(6);
-			mySketch.framequad(this.locationGenesis.x + 0.015, this.locationGenesis.y + 0.015, 0, this.locationGenesis.x + 0.015, this.locationGenesis.y - 0.015, 0, this.locationGenesis.x - 0.015, this.locationGenesis.y - 0.015, 0, this.locationGenesis.x - 0.015, this.locationGenesis.y + 0.015, 0);
+			mySketch.framequad(0.015, 0.015, 0, 0.015, -0.015 / distort, 0, -0.015, -0.015 / distort, 0, -0.015, 0.015, 0);
 			mySketch.glpopmatrix();
 		break;
 
-		case "PLN_00A":
+		case "FQ_b_10":
+			mySketch.glpushmatrix();
+			mySketch.shapeorient(0, 0, 0);
+			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
+			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glscale(this.scale.x * distort, this.scale.y * distort, 1);
+			mySketch.moveto(0, 0, 0);
+			//
+			mySketch.shapeslice(6);
+			mySketch.framequad(this.width, this.height, 0, this.width, -this.height, 0, -this.width, -this.height, 0, -this.width, this.height, 0);
+			mySketch.glpopmatrix();
+		break;
+
+		//–––––––––––––
+		// Plane based
+		//–––––––––––––
+
+		case "PL_a_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, (this.location.y + (this.scale.y * this.height) - this.height), 0); // position shape at location
 			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glrotate(this.rotation, 0, 1, 0);
 			//
 			mySketch.gldisable("line_stipple");
 			//
@@ -269,7 +292,7 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "PLN_10A":
+		case "PL_a_10":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, (this.location.y + (this.scale.y * this.height) - this.height), 0); // position shape at location
@@ -286,7 +309,7 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "PLN_12A":
+		case "PL_a_12":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y, 0); // position shape at location
@@ -310,7 +333,7 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "PLN_12B":
+		case "PL_b_12":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y, 0); // position shape at location
@@ -341,7 +364,7 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "PLN_12C":
+		case "PL_c_12":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0); // position shape at location
@@ -369,84 +392,44 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "PLN_20A":
-			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.location.x, (this.location.y + (this.scale.y * this.height) - this.height), 0); // position shape at location
-			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
-			//
-			mySketch.gldisable("line_stipple");
-			mySketch.shapeprim("points");
-			mySketch.shapeslice(1, 1);
-			mySketch.glpointsize(10);
-			//
-			mySketch.plane(this.width, this.height * this.scale.y); // putting scale.y here to avoid using glscale
-			mySketch.glpopmatrix();
-		break;
-
-		case "PLN_32A":
-			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y, 0); // position shape at location
-			mySketch.moveto(0, 0, 0);
-			mySketch.glrotate(this.rotation, 1, 0, 0);
-			//
-			mySketch.shapeprim("lines");
-			mySketch.shapeslice(4, 1);
-			mySketch.gldisable("line_stipple");
-			mySketch.gllinestipple(1, 255);
-			mySketch.gllinewidth(10);
-			mySketch.glpointsize(10);
-			//
-			mySketch.plane(this.width, this.height * this.scale.y); // putting scale.y here to avoid using glscale
-			//
-			mySketch.glenable("line_stipple");
-			mySketch.gllinestipple(1, 3855);
-			mySketch.gllinewidth(2);
-			//
-			mySketch.glcolor(0, 0, 0, 1);
-			mySketch.shapeprim("points");
-			mySketch.shapeslice(4, 16);
-			mySketch.plane(this.width, this.height); // putting scale.y here to avoid using glscale
-			mySketch.glpopmatrix();
-		break;
-
 		//–––––––––––-
 		// Line based
 		//––––––––––-–
 
-		case "HLN_00A":
+		case "HL_a_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.location.x, this.location.y * (1 - (high * dial1)), 0); // position shape at location
-			mySketch.moveto(this.location.x - this.width, this.location.y, 0);
+			mySketch.gltranslate(this.locationGenesis.x * distort, this.locationGenesis.y, 0); // position shape at location
+			// moveto() does not apply to linesegment
 			mySketch.glrotate(this.rotation, 0, 0, -1);
 			mySketch.glscale(this.scale.x, 1, 1);
 			//
 			mySketch.gldisable("line_stipple");
 			//
-			mySketch.lineto(this.location.x + this.width, this.location.y * (1 - (high * dial1)), 0);
+			mySketch.linesegment(-this.width / 2, 0, 0, this.width / 2, 0, 0);
 			mySketch.glpopmatrix();
 		break;
 
-		case "HLN_00B":
+		case "HL_b_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.location.x, this.location.y * (1 - (high * dial1)), 0); // position shape at location
-			mySketch.moveto(this.location.x - this.width, this.location.y, 0);
+			mySketch.gltranslate(this.locationGenesis.x * distort, this.locationGenesis.y, 0); // position shape at location
 			mySketch.glrotate(this.rotation, 0, 0, -1);
 			mySketch.glscale(this.scale.x, 1, 1);
 			//
-			mySketch.gldisable("line_stipple");
+			mySketch.gllinewidth(2);
+			mySketch.linesegment(-this.width, 0, 0, this.width, 0, 0);
 			//
-			mySketch.lineto(this.location.x + this.width, this.location.y * (1 - (high * dial1)), 0);
-			mySketch.moveto((this.location.x + this.width)* (1 - (high * dial1)), (this.location.y + increment), 0);
-			mySketch.lineto(this.location.x + this.width, (this.location.y + increment) * (1 - (high * dial1)), 0);
+			mySketch.gllinewidth(10);
+			mySketch.gldisable("line_stipple");
+			// mySketch.linesegment(this.location.x - (this.width / 4), 0, 0, this.location.x + (this.width / 4), 0, 0);
+
+			mySketch.linesegment(this.location.x * (-this.width/4), 0, 0, this.location.x * (this.width/4), 0, 0);
+			//
 			mySketch.glpopmatrix();
 		break;
 
-		case "HLN_00C":
+		case "HL_c_00":
 			// dsg aka double segment: similar to segment but it creates nice 45degrees compositions when rotating
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
@@ -459,20 +442,22 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "VLN____":
+		case "VL_a_00":
 			mySketch.glpushmatrix();
-			mySketch.linesegment(this.location.x, this.boundTop, 0, this.location.x, this.boundTop - (this.boundsHeight * this.scale.y), 0);
+			mySketch.shapeorient(0, 0, 0);
+			mySketch.gltranslate(this.location.x * distort, this.location.y, 0); // position shape at location
+			mySketch.linesegment(0, -this.height, 0, 0, this.height, 0);
 			mySketch.glpopmatrix();
 		break;
 
-		case "MNT____":
+		case "MT_a_00":
 			mySketch.glpushmatrix();
-			mySketch.linesegment(this.boundLeft, this.locationGenesis.y, 0, this.locationGenesis.x * this.scale.x, this.location.y, 0);
-			mySketch.linesegment(this.locationGenesis.x * this.scale.x, this.location.y, 0, this.boundRight, this.locationGenesis.y, 0);	
+			mySketch.linesegment(this.boundLeft, this.locationGenesis.y * distort, 0, this.locationGenesis.x * this.scale.x, this.location.y, 0);
+			mySketch.linesegment(this.locationGenesis.x * this.scale.x, this.location.y, 0, this.boundRight, this.locationGenesis.y * distort, 0);	
 			mySketch.glpopmatrix();
 		break;
 
-		case "RAL____":
+		case "RL_a_00":
 			mySketch.glpushmatrix();
 			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
 			mySketch.moveto(0, 0, 0);
@@ -492,37 +477,26 @@ Shape.prototype.display = function(){
 		// Circle based
 		//––––––––––––––
 
-		case "HEX___A":
+		case "HX_a_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.location.x + positions[1], this.locationGenesis.y, 0);
 			mySketch.glrotate(this.rotation, 0, 0, 1);
 			mySketch.moveto(0, 0, 0);
 			//
+			mySketch.gldisable("line_stipple");
 			mySketch.shapeslice(6);
+			//
 			mySketch.circle(0.015);
 			mySketch.glpopmatrix();
 		break;
 
-		case "HEX___B":
-			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
-			mySketch.shapeorient(0, 0, this.rotation + 45);
-			mySketch.moveto(0, 0, 0);
-			//
-			mySketch.shapeslice(4);
-			mySketch.framecircle(0.015);
-			mySketch.glpopmatrix();
-		break;
-
-		case "HEX_00A":
+		case "HX_b_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 45);
 			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
 			mySketch.glrotate(this.rotation, 0, 1, 0);
 			mySketch.moveto(0, 0, 0);
-			mySketch.glscale(this.scale.x, this.scale.y, 0)
 			//
 			mySketch.gldisable("line_stipple");
 			mySketch.shapeslice(4);
@@ -531,41 +505,45 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "HEX_00B":
+		case "HX_c_00":
+			mySketch.glpushmatrix();
+			mySketch.shapeorient(0, 0, 45);
+			mySketch.gltranslate(this.location.x, this.location.y, 0);
+			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.moveto(0, 0, 0);
+			//
+			mySketch.gldisable("line_stipple");
+			mySketch.shapeslice(24);
+			//
+			mySketch.circle(0.00375);
+			mySketch.glpopmatrix();
+			//–––––popping–––––//
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 45);
 			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
 			mySketch.glrotate(this.rotation, 0, 0, 1);
 			mySketch.moveto(0, 0, 0);
-			
-			mySketch.shapeslice(24);
-			//
-			mySketch.circle(0.00375);
-
-			mySketch.glscale(this.scale.x, this.scale.y, 0)
+			mySketch.glscale(this.scale.y / distort, this.scale.y / distort, 0)
 			//
 			mySketch.shapeslice(4);
 			//
 			mySketch.framecircle(0.015);
-			//
-			
 			mySketch.glpopmatrix();
 		break;
 
-		case "HEX___C":
+		case "CR_a_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.location.x + positions[1], this.locationGenesis.y, 0);
-			mySketch.glrotate(this.rotation + 45, 0, 0, 1);
+			mySketch.gltranslate(this.location.x + positions[1], this.location.y, 0);
+			mySketch.glrotate(this.rotation * this.rotationDirection, 0, 0, 1);			
 			mySketch.moveto(positions[0], 0, 0);
 			//
 			mySketch.shapeslice(32);
-			mySketch.framecircle(0.015);
+			mySketch.circle(0.0075 * this.scale.x / distort); // I've put scale and distort factor here otherwise glscale would scale the whole composition including distance from the original drawing point
 			mySketch.glpopmatrix();
 		break;
 
 		default:
-			// if no object type has been assigned, make a red dot in the middle of the screen 
 			// i had something here but then removed it because it was constantly displayed... not sure why. I should check the max patch.
 	}
 

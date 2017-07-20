@@ -290,6 +290,10 @@ function updateProgressBar(timeLeft, totalTime){
 	progressBar.endPoint.x = (windowWidth * (timeLeft / totalTime)) - viewPortRight;
 }
 
+function perspective(i){
+	myRender.ortho = i;
+}
+
 
 
 
