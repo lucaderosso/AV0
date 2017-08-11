@@ -77,8 +77,8 @@ myGrid.shape = "plane";
 myGrid.gl_color = [0.8, 0.8, 0.8, 0.1]; 
 myGrid.gridmode = 0;
 myGrid.poly_mode = 2;
-myGrid.point_size = 4;
-myGrid.line_width = 2; // set to 2 when using projectors;
+myGrid.point_size = 2;
+myGrid.line_width = 1; // set to 2 when using projectors;
 
 
 

@@ -161,7 +161,7 @@ Shape.prototype.display = function(){
 	var distort = (1 - (high * dial1));
 	var alpha = this.lifespan / 255.0;
 	mySketch.glcolor(this.color.r, this.color.g, this.color.b, alpha);
-	mySketch.gllinewidth(4);
+	mySketch.gllinewidth(2);
 
 	switch(this.type) {
 		// for objects to do something when any pad is pushed they need to include:
@@ -224,7 +224,7 @@ Shape.prototype.display = function(){
 			//
 			mySketch.shapeslice(2, 1);
 			mySketch.shapeprim("lines");
-			mySketch.gllinewidth(4);
+			mySketch.gllinewidth(2);
 			//
 			mySketch.cube(this.width, this.height, 0.01);
 			mySketch.glpopmatrix();
@@ -301,8 +301,8 @@ Shape.prototype.display = function(){
 			mySketch.gldisable("line_stipple");
 			mySketch.shapeprim("lines");
 			mySketch.shapeslice(8, 1);
-			mySketch.gllinewidth(20);
-			mySketch.glpointsize(10);
+			mySketch.gllinewidth(10);
+			mySketch.glpointsize(5);
 			//
 			mySketch.plane(this.width, this.height * this.scale.y); // putting scale.y here to avoid using glscale
 			mySketch.glpopmatrix();
@@ -319,14 +319,14 @@ Shape.prototype.display = function(){
 			mySketch.shapeslice(4, 1);
 			mySketch.gldisable("line_stipple");
 			mySketch.gllinestipple(1, 255);
-			mySketch.gllinewidth(10);
-			mySketch.glpointsize(10);
+			mySketch.gllinewidth(5);
+			mySketch.glpointsize(5);
 			mySketch.plane(this.width, this.height * this.scale.y); // putting scale.y here to avoid using glscale
 			//
 			mySketch.glenable("line_stipple");
 			mySketch.gllinestipple(1, 3855);
-			mySketch.gllinewidth(2);
-			mySketch.gllinewidth(2);
+			mySketch.gllinewidth(1);
+			mySketch.gllinewidth(1);
 			//
 			mySketch.plane(this.width, this.height); // putting scale.y here to avoid using glscale
 			mySketch.glpopmatrix();
@@ -357,10 +357,10 @@ Shape.prototype.display = function(){
 			mySketch.glrotate(this.rotation, 0, 0, -1);
 			mySketch.glscale(this.scale.x, 1, 1);
 			//
-			mySketch.gllinewidth(2);
+			mySketch.gllinewidth(1);
 			mySketch.linesegment(-this.width, 0, 0, this.width, 0, 0);
 			//
-			mySketch.gllinewidth(10);
+			mySketch.gllinewidth(5);
 			mySketch.gldisable("line_stipple");
 			// mySketch.linesegment(this.location.x - (this.width / 4), 0, 0, this.location.x + (this.width / 4), 0, 0);
 
@@ -421,7 +421,7 @@ Shape.prototype.display = function(){
 		case "HX_a_00":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate(this.location.x + positions[1], this.locationGenesis.y, 0);
+			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
 			mySketch.glrotate(this.rotation, 0, 0, 1);
 			mySketch.moveto(0, 0, 0);
 			//
@@ -582,8 +582,7 @@ function genesis(layer, items, type, gridColumns, gridRows){
 
 	var colPace = (windowWidth / columns) / 2;
 	var rowPace = (windowHeight / rows) / 2;
-	var multiples = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31];
-
+	
 	var xCoordinates = [];
 	var yCoordinates = [];
 	var leftBounds = [];
@@ -596,14 +595,14 @@ function genesis(layer, items, type, gridColumns, gridRows){
 	// calculate x and y position for all items
 	for (var f = 0; f < rows; f++) {
 		// calculate vertical multiplier
-		var verticalMultiplier = multiples[f];		
+		var verticalMultiplier = 1 + (f * 2);		
 		var y = viewPortBottom + (rowPace * verticalMultiplier);
 		var bottom = y - rowPace;
 		var top = y + rowPace;
 
 		for (var g = 0; g < columns; g++) {
 			// calculate horizontal multiplier
-			var horizontalMultiplier = multiples[g];
+			var horizontalMultiplier = 1 + (g * 2);
 			var x = viewPortLeft + (colPace * horizontalMultiplier);
 			var left = x - colPace;
 			var right = x + colPace;	
