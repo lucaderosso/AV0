@@ -645,9 +645,12 @@ var newLifeSpan = 255;
 
 function assignLifeSpanForLayer(value, layer){
 	var affectedShapes = layers[layer].shapes;
-	for(var f = 0; f < affectedShapes.length; f++){
-		newLifeSpan = 255 * value;
-		affectedShapes[f].lifespan = newLifeSpan;
+	// checking for sustain otherwise shapes will flash in an out when turning dials with no pad pressed
+	if(layers[layer].sustain == true){
+		for(var f = 0; f < affectedShapes.length; f++){
+			newLifeSpan = 255 * value;
+			affectedShapes[f].lifespan = newLifeSpan;
+		}
 	}
 }
 
