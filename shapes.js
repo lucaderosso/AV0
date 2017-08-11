@@ -158,7 +158,7 @@ Shape.prototype.display = function(){
 	// In general, the order of transformations is critical.
 	// Also:
 	// mySketch.moveto(0, 0, 0); is used below to center the composition on x,y 0,0.
-	var distort = (1 - (high * dial1));
+	var distort = (1 - (high * dial6));
 	var alpha = this.lifespan / 255.0;
 	mySketch.glcolor(this.color.r, this.color.g, this.color.b, alpha);
 	mySketch.gllinewidth(2);
@@ -643,14 +643,11 @@ function genesis(layer, items, type, gridColumns, gridRows){
 
 var newLifeSpan = 255;
 
-function assignLifeSpan(value){	
-	for(var i = 0; i < layers.length; i++){
-		if(layers[i].sustain == true){
-			for(var f = 0; f < layers[i].shapes.length; f++){
-				newLifeSpan = 255 * value;
-				layers[i].shapes[f].lifespan = newLifeSpan;
-			}
-		}
+function assignLifeSpanForLayer(value, layer){
+	var affectedShapes = layers[layer].shapes;
+	for(var f = 0; f < affectedShapes.length; f++){
+		newLifeSpan = 255 * value;
+		affectedShapes[f].lifespan = newLifeSpan;
 	}
 }
 

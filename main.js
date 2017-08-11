@@ -62,14 +62,14 @@ colorWhite.g = 1;
 colorWhite.b = 1;
 colorWhite.b = 1;
 
-var dial0 = 0;	
-var dial1 = 0;
-var dial2 = 0;
-var dial3 = 0;
-var dial4 = 0;
-var dial5 = 0;
-var dial6 = 0;
-var dial7 = 0;
+var dial0;	
+var dial1;
+var dial2;
+var dial3;
+var dial4;
+var dial5;
+var dial6;
+var dial7;
 
 // low mid high levels coming from the DSP Values M4L device in the same track as this one.
 var low = 0;
@@ -100,13 +100,17 @@ function dialValue(dial, value){
 	switch (dial){
 		case "d0":
 			dial0 = value;
-			assignLifeSpan(value);
+			assignLifeSpanForLayer(value, 0);
+			assignLifeSpanForLayer(value, 1);
 		break;
 		case "d1":
 			dial1 = value;
+			assignLifeSpanForLayer(value, 2);
+			assignLifeSpanForLayer(value, 3);
 		break;
 		case "d2":
 			dial2 = value;
+
 		break;
 		case "d3":
 			dial3 = value;
@@ -119,12 +123,12 @@ function dialValue(dial, value){
 		break;
 		case "d6":
 			dial6 = value;
-			updateLifeDecay(value);			
-			assignEase(value);
-			background(value);
 		break;
 		case "d7":
 			dial7 = value;
+			updateLifeDecay(value);			
+			assignEase(value);
+			background(value);
 		break;
 		default:
 	}
@@ -140,7 +144,13 @@ function checkSustain(layer, velocity){
 		// go through each shape in the array
 		for(var i = 0; i < array.length; i++){
 			if(velocity > 0){
-				array[i].lifespan = newLifeSpan; // recover lifespan
+				if(layer == "layer1" || layer == "layer2"){
+					array[i].lifespan = 255 * dial0; // recover lifespan					
+				}
+				if(layer == "layer3" || layer == "layer4"){
+					array[i].lifespan = 255 * dial1; // recover lifespan					
+				}
+
 				array[i].fading = false; // don't fade as long as pad is pressed 
 			} else {
 				// if velocity is == 0 (aka pad no longer pressed) then start fading the shape
@@ -148,6 +158,11 @@ function checkSustain(layer, velocity){
 			}
 		}
 	}
+	post("- \n");
+	post("dial0: " + dial0 + "\n");
+	post("dial1: " + dial1 + "\n");
+	post("dial2: " + dial2 + "\n");
+	post("dial3: " + dial3 + "\n");
 }
 
 // pads: interaction with layers
@@ -269,11 +284,11 @@ function invertColors(invert){
 function gridIntensity(){
 	if(whiteOnBlack == true){
 		// adding 0.1 so it never goes to 0
-		var value = 0.1 + (high * dial1);
+		var value = 0.1 + (high * dial6);
 		// assigning value to R, G and B to make it go from black to white
 		myGrid.gl_color = [value, value, value, 1];
 	} else {
-		var value = 0.9 - (high * dial1);
+		var value = 0.9 - (high * dial6);
 		myGrid.gl_color = [value, value, value, 1];
 	}
 }
