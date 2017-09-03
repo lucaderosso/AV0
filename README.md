@@ -24,7 +24,7 @@ If you whish to learn more about the concept behind AV0 you can do so [on my web
 This project was developed as a tool for myself and it therefore still lacks the proper packaging that would make it immediate to integrate it in your set.
 So in order to get you started as fast as possible I decided the best route was to share a Live Set already setup where you should be able to see what it does instead of reading a list of instructions.
 
-    1. __Download__ and launch [this Live Set template](http://www.lucaderosso.com/r/r_av0-live-template.html) which included all you need to try it.
+1. __Download__ and launch [this Live Set template](http://www.lucaderosso.com/r/r_av0-live-template.html) which included all you need to try it.
 2. __Activate Live's playback__ which will tells the visuals's window to starts drawing.
 3. __Play notes__ (from E2 to G3) or launch the Demo clip to see visuals and hear sounds.
 
