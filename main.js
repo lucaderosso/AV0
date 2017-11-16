@@ -98,19 +98,18 @@ newGrid(8); // build a grid that draw() will display
 // dials
 function dialValue(dial, value){	
 	switch (dial){
-		case "d0":
+		case "d0": // Volume Top Two Layers
 			dial0 = value;
 			assignLifeSpanForLayer(value, 0);
 			assignLifeSpanForLayer(value, 1);
 		break;
-		case "d1":
+		case "d1": // Volume bottom Two Layers
 			dial1 = value;
 			assignLifeSpanForLayer(value, 2);
 			assignLifeSpanForLayer(value, 3);
 		break;
 		case "d2":
 			dial2 = value;
-
 		break;
 		case "d3":
 			dial3 = value;
@@ -118,10 +117,10 @@ function dialValue(dial, value){
 		case "d4":
 			dial4 = value;
 		break;
-		case "d5":
+		case "d5": // Audio In
 			dial5 = value;
 		break;
-		case "d6":
+		case "d6": //LFO
 			dial6 = value;
 		break;
 		case "d7":
@@ -158,11 +157,11 @@ function checkSustain(layer, velocity){
 			}
 		}
 	}
-	post("- \n");
-	post("dial0: " + dial0 + "\n");
-	post("dial1: " + dial1 + "\n");
-	post("dial2: " + dial2 + "\n");
-	post("dial3: " + dial3 + "\n");
+	// post("- \n");
+	// post("dial0: " + dial0 + "\n");
+	// post("dial1: " + dial1 + "\n");
+	// post("dial2: " + dial2 + "\n");
+	// post("dial3: " + dial3 + "\n");
 }
 
 // pads: interaction with layers
@@ -235,11 +234,12 @@ function updateSustainForLayer(layer, velocity){
 // 	high = h;
 // }
 
-function levels(l, m, h){
+function levels(l, m, h, a){
 	// update values for low mid high levels coming from the DSP Values M4L device in the same track as this one.
 	low = l;
 	mid = m;
 	high = h;
+	all = a;
 }
 
 var whiteOnBlack = true;
@@ -284,11 +284,11 @@ function invertColors(invert){
 function gridIntensity(){
 	if(whiteOnBlack == true){
 		// adding 0.1 so it never goes to 0
-		var value = 0.1 + (high * dial6);
+		var value = 0.1 + ((high * dial5) * 0.4);
 		// assigning value to R, G and B to make it go from black to white
 		myGrid.gl_color = [value, value, value, 1];
 	} else {
-		var value = 0.9 - (high * dial6);
+		var value = 0.9 - (high * dial5);
 		myGrid.gl_color = [value, value, value, 1];
 	}
 }

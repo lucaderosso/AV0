@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 927.0, 143.0, 911.0, 949.0 ],
+		"rect" : [ 802.0, 121.0, 911.0, 949.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -38,27 +38,28 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-36",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 2,
-					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 443.0, 133.5, 36.0, 22.0 ],
-					"style" : "",
-					"text" : "sel 1"
+					"comment" : "",
+					"id" : "obj-40",
+					"index" : 0,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 524.0, 226.0, 30.0, 30.0 ],
+					"style" : ""
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-35",
-					"maxclass" : "message",
+					"id" : "obj-36",
+					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 443.0, 168.0, 37.0, 22.0 ],
+					"numoutlets" : 2,
+					"outlettype" : [ "bang", "" ],
+					"patching_rect" : [ 476.0, 241.0, 36.0, 22.0 ],
 					"style" : "",
-					"text" : "set 1"
+					"text" : "sel 1"
 				}
 
 			}
@@ -69,7 +70,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 506.0, 299.0, 153.0, 60.0 ],
+					"patching_rect" : [ 506.0, 299.0, 155.0, 60.0 ],
 					"style" : "",
 					"text" : "Before I had just a random now [timeline] allows me to have a sequence of pre defined scenes' lengths",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
@@ -80,7 +81,7 @@
 				"box" : 				{
 					"id" : "obj-25",
 					"maxclass" : "newobj",
-					"numinlets" : 1,
+					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 443.0, 300.0, 52.0, 22.0 ],
@@ -98,7 +99,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 108.0, 30.0, 30.0, 30.0 ],
+					"patching_rect" : [ 108.0, 28.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -230,7 +231,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 253.625, 30.0, 208.0, 33.0 ],
+					"patching_rect" : [ 253.625, 28.0, 208.0, 33.0 ],
 					"style" : "",
 					"text" : "This is so any incoming midi note from push will re activate the timer."
 				}
@@ -269,7 +270,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 221.5, 75.0, 29.5, 22.0 ],
+					"patching_rect" : [ 221.5, 73.0, 29.5, 22.0 ],
 					"style" : "",
 					"text" : "1"
 				}
@@ -284,7 +285,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 221.5, 30.0, 30.0, 30.0 ],
+					"patching_rect" : [ 221.5, 28.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -334,10 +335,10 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 4,
-					"outlettype" : [ "bang", "bang", "bang", "bang" ],
-					"patching_rect" : [ 41.0, 241.0, 54.0, 22.0 ],
+					"outlettype" : [ "bang", "next", "bang", "bang" ],
+					"patching_rect" : [ 41.0, 241.0, 70.0, 22.0 ],
 					"style" : "",
-					"text" : "t b b b b"
+					"text" : "t b next b b"
 				}
 
 			}
@@ -442,7 +443,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 629.0, 241.0, 30.0, 30.0 ],
+					"patching_rect" : [ 631.0, 226.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -763,7 +764,7 @@
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 293.625, 73.0, 128.0, 22.0 ],
 					"style" : "",
-					"text" : "qmetro 32n @active 1"
+					"text" : "qmetro 64n @active 1"
 				}
 
 			}
@@ -845,7 +846,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
-					"midpoints" : [ 303.125, 123.5, 638.5, 123.5 ],
+					"midpoints" : [ 303.125, 123.5, 640.5, 123.5 ],
 					"order" : 1,
 					"source" : [ "obj-128", 0 ]
 				}
@@ -933,7 +934,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
-					"midpoints" : [ 62.166667, 280.5, 452.5, 280.5 ],
+					"midpoints" : [ 67.5, 280.5, 452.5, 280.5 ],
 					"source" : [ "obj-28", 1 ]
 				}
 
@@ -941,7 +942,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-30", 0 ],
-					"midpoints" : [ 73.833333, 743.0, 333.5, 743.0 ],
+					"midpoints" : [ 84.5, 743.0, 333.5, 743.0 ],
 					"source" : [ "obj-28", 2 ]
 				}
 
@@ -1013,18 +1014,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-25", 0 ],
-					"midpoints" : [ 346.0, 643.333374, 568.5, 643.333374, 568.5, 280.0, 452.5, 280.0 ],
-					"order" : 1,
-					"source" : [ "obj-31", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-29", 1 ],
 					"midpoints" : [ 346.0, 643.594055, 567.5, 643.594055 ],
-					"order" : 0,
 					"source" : [ "obj-31", 1 ]
 				}
 
@@ -1063,14 +1054,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-25", 0 ],
-					"source" : [ "obj-35", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
+					"destination" : [ "obj-25", 1 ],
 					"source" : [ "obj-36", 0 ]
 				}
 
@@ -1102,6 +1086,13 @@
 					"destination" : [ "obj-44", 1 ],
 					"order" : 0,
 					"source" : [ "obj-39", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-25", 1 ],
+					"source" : [ "obj-40", 0 ]
 				}
 
 			}
@@ -1213,7 +1204,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-31", 0 ],
-					"source" : [ "obj-66", 2 ]
+					"source" : [ "obj-66", 3 ]
 				}
 
 			}

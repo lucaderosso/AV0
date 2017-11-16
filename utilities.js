@@ -77,8 +77,9 @@ myGrid.shape = "plane";
 myGrid.gl_color = [0.8, 0.8, 0.8, 0.1]; 
 myGrid.gridmode = 0;
 myGrid.poly_mode = 2;
-myGrid.point_size = 2;
-myGrid.line_width = 1; // set to 2 when using projectors;
+var thisPointSize = 4; // double when using projectors;
+myGrid.point_size = thisPointSize;
+myGrid.line_width = 2; 
 
 
 
@@ -192,15 +193,15 @@ function Line(startX, startY, endX, endY){
 	this.endPoint.z = 0;
 	// color
 	this.color = Object.create(colorWhite);
-	this.color.r = 0.7;
-	this.color.g = 0.7;
-	this.color.b = 0.7;
+	this.color.r = 0.3;
+	this.color.g = 0.3;
+	this.color.b = 0.3;
 }
 
 Line.prototype.display = function(){
 	mySketch.glpushmatrix();
 	mySketch.glcolor(this.color.r, this.color.g, this.color.b, this.color.a);
-	mySketch.quad(this.startPoint.x, this.startPoint.y, 0, this.startPoint.x, this.startPoint.y + 0.004, 0, this.endPoint.x, this.endPoint.y + 0.004, 0, this.endPoint.x, this.startPoint.y, 0);
+	mySketch.quad(this.startPoint.x, this.startPoint.y, 0, this.startPoint.x, this.startPoint.y + 0.002, 0, this.endPoint.x, this.endPoint.y + 0.002, 0, this.endPoint.x, this.startPoint.y, 0);
 	mySketch.glpopmatrix();
 }
 
@@ -302,6 +303,10 @@ function calculateSizesForViewPort(){
 	viewPortTop = heightRatio; // window top cohordinate
 	windowWidth = Math.abs(viewPortLeft) + viewPortRight;
 	windowHeight = Math.abs(viewPortBottom) + viewPortTop;
+
+	// post("- \n\n");
+	// post("windowWidth: " + windowWidth + "\n");
+	// post("windowHeight: " + windowHeight + "\n");
 }
 
 // This method scales mySketch and myGrid in order to fill the window as much as possible at any given aspect ratio
@@ -324,10 +329,11 @@ function scaleSketch(){
 function newGrid(i){
 	// vertical subdivision is expressed in how many cells to display horizontaly, vertical count will be calculated accordingly
 	subdivisions = i;
+
 	// check if viewPort with if greater than height
 	if(viewPortAspectRatio[0] >= viewPortAspectRatio[1]){
 		// update increment
-		increment = windowHeight / subdivisions;		
+		increment = windowHeight / subdivisions;
 	} else if(viewPortAspectRatio[0] < viewPortAspectRatio[1]){
 		// update increment
 		increment = windowWidth / subdivisions;
@@ -339,6 +345,9 @@ function newGrid(i){
 	positions = [-increment, increment];
 	// update myGrid dim to match the calculated grid
 	myGrid.dim = [1 + horizontalRes, 1 + verticalRes];
+
+	// post("- \n\n");
+	// post("increment: " + increment + "\n");
 }
 
 // This method repositions and scales the progressbar according to the viewPort's size
@@ -354,7 +363,7 @@ function viewPort(){
 	mySketch.glpushmatrix();
 	// check if viewPort has been requested (1) or not (0)
 	if(viewPortStatus == 1){
-		// when visible the quads masking outer area are colored in transparent green
+		// when visible the quads masking outer area are colored in transparent red
 		mySketch.glcolor(1, 0.45, 0.47, 0.5);
 		myRender.axes = 1;
 		myGrid.poly_mode = 1;
@@ -365,7 +374,7 @@ function viewPort(){
 		mySketch.glcolor(0, 0, 0, 1);
 		myRender.axes = 0;
 		myGrid.poly_mode = 2;
-		myGrid.point_size = 4;		
+		myGrid.point_size = thisPointSize;		
 	}
 	// check if viewPort height is smaller than widht
 	if(heightRatio < 1){
