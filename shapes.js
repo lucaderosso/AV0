@@ -199,6 +199,21 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
+		// case "+_◼...._.": 
+		// 	//plane centered scaling both directions
+		// 	mySketch.glpushmatrix();
+		// 	mySketch.shapeorient(0, 0, 0);
+		// 	mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
+		// 	mySketch.moveto(0, 0, 0);
+		// 	mySketch.glrotate(this.rotation, 0, 1, 0);
+		// 	mySketch.glscale(this.scale.x * distort, this.scale.y * distort, 1);
+		// 	//
+		// 	mySketch.gldisable("line_stipple");
+		// 	//
+		// 	mySketch.cube(this.width * distort - 0.001, this.height * distort - 0.001, 0.01);
+		// 	mySketch.glpopmatrix();
+		// break;
+
 		case "+_◼...._•": 
 			//plane centered scaling both directions
 			mySketch.glpushmatrix();
@@ -210,36 +225,22 @@ Shape.prototype.display = function(){
 			//
 			mySketch.shapeslice(2, 2);
 			mySketch.shapeprim("points");
-			mySketch.glpointsize(16);
+			mySketch.glpointsize(8);
 			//
 			mySketch.plane(this.width, this.height); // putting scale.y here to avoid using glscale
-			mySketch.glpointsize(12);
+			// mySketch.glpointsize(12);
 			//
 			mySketch.glpopmatrix();
 		break;
 
-		// case "·_□...._.":
-		// 	mySketch.glpushmatrix();
-		// 	mySketch.shapeorient(0, 0, 0);
-		// 	mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
-		// 	mySketch.glrotate(this.rotation, 0, 0, 1);
-		// 	mySketch.glscale(this.scale.x, this.scale.y, 1);
-		// 	mySketch.moveto(0, 0, 0);
-		// 	//
-		// 	mySketch.shapeslice(6);
-		// 	mySketch.framequad(0.015, 0.015, 0, 0.015, -0.015 / distort, 0, -0.015, -0.015 / distort, 0, -0.015, 0.015, 0);
-		// 	mySketch.glpopmatrix();
-		// break;
-
 		case "+_□...._.":
 			mySketch.glpushmatrix();
-			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
 			mySketch.glrotate(this.rotation, 1, 0, 0);
 			mySketch.glscale(this.scale.x * distort, this.scale.y * distort, 1);
 			mySketch.moveto(0, 0, 0);
 			//
-			mySketch.shapeslice(6);
+			mySketch.gllinewidth(4);
 			mySketch.framequad(this.width, this.height, 0, this.width, -this.height, 0, -this.width, -this.height, 0, -this.width, this.height, 0);
 			mySketch.glpopmatrix();
 		break;
@@ -306,7 +307,7 @@ Shape.prototype.display = function(){
 			mySketch.gllinewidth(2);
 			mySketch.linesegment(-this.width, 0, 0, this.width, 0, 0);
 			//
-			mySketch.gllinewidth(6);
+			mySketch.gllinewidth(8);
 			mySketch.gldisable("line_stipple");
 			// mySketch.linesegment(this.location.x - (this.width / 4), 0, 0, this.location.x + (this.width / 4), 0, 0);
 
@@ -316,16 +317,34 @@ Shape.prototype.display = function(){
 		break;
 
 		case "·_/...._.":
-			// this creates nice 45degrees compositions when rotating
+			mySketch.glpushmatrix();
+			mySketch.gltranslate(this.locationGenesis.x, this.location.y * distort, 0); // position shape at location
+			mySketch.glrotate(this.rotation / 2, 0, 0, this.rotationDirection);
+			mySketch.gldisable("line_stipple");
+			mySketch.glscale(this.scale.x, 1, 1);
+			mySketch.gllinewidth(4);
+			mySketch.linesegment(this.location.x + this.width, 0, 0, this.location.x - this.width, 0, 0);
+			mySketch.glpopmatrix();
+		break;
+
+		case "·_//..._.":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
 			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y * distort, 0); // position shape at location
-			mySketch.glrotate((this.rotation/2) * this.rotationDirection, 0, 0, 1);
-			mySketch.glscale(this.scale.x, 1, 1);
-			// mySketch.move(0, 0, 0);
-			mySketch.linesegment(this.location.x - this.width, this.location.y, 0, this.location.x + this.width, this.location.y, 0);
 			mySketch.glrotate(this.rotation, 0, 0, 1);
+			
+			mySketch.glenable("line_stipple");
+			mySketch.gllinewidth(4);
+			mySketch.gllinestipple(2, 3855);
 			mySketch.linesegment(this.location.x - this.width, this.location.y, 0, this.location.x + this.width, this.location.y, 0);
+			mySketch.glpopmatrix();
+
+			mySketch.glpushmatrix();
+			mySketch.gltranslate(this.locationGenesis.x, this.locationGenesis.y * distort, 0); // position shape at location
+			mySketch.glrotate(this.rotation / 2, 0, 0, this.rotationDirection);
+			mySketch.gldisable("line_stipple");
+			mySketch.glscale(this.scale.x, 1, 1);
+			mySketch.linesegment(this.location.x + this.width, 0, 0, this.location.x - this.width, 0, 0);
 			mySketch.glpopmatrix();
 		break;
 
@@ -338,22 +357,20 @@ Shape.prototype.display = function(){
 
 			mySketch.glpushmatrix();
 			mySketch.gltranslate(this.location.x * distort, this.locationGenesis.y + this.height/2, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glrotate(this.rotation, 1, 0, 0);
 			mySketch.glscale(this.scale.y, this.scale.y, 1);
 			// mySketch.moveto(0, this.height/2, 0);
 			//
-			mySketch.shapeslice(6);
-			mySketch.framequad(0.015, 0.015, 0, 0.015, -0.015, 0, -0.015, -0.015, 0, -0.015, 0.015, 0);
+			mySketch.framequad(0.0075, 0.0075, 0, 0.0075, -0.0075, 0, -0.0075, -0.0075, 0, -0.0075, 0.0075, 0);
 			mySketch.glpopmatrix();
 
 			mySketch.glpushmatrix();
 			mySketch.gltranslate(this.location.x * distort, this.locationGenesis.y - this.height/2, 0);
-			mySketch.glrotate(this.rotation, 0, 0, 1);
+			mySketch.glrotate(this.rotation, 1, 0, 0);
 			mySketch.glscale(this.scale.y, this.scale.y, 1);
 			// mySketch.moveto(0, this.height/2, 0);
 			//
-			mySketch.shapeslice(6);
-			mySketch.framequad(0.015, 0.015, 0, 0.015, -0.015, 0, -0.015, -0.015, 0, -0.015, 0.015, 0);
+			mySketch.framequad(0.0075, 0.0075, 0, 0.0075, -0.0075, 0, -0.0075, -0.0075, 0, -0.0075, 0.0075, 0);
 			mySketch.glpopmatrix();
 
 		break;
@@ -392,6 +409,20 @@ Shape.prototype.display = function(){
 
 		break;
 
+		case "-_-----_.": // not that interesting
+			mySketch.glpushmatrix();
+			mySketch.glenable("line_stipple");
+			mySketch.gllinestipple(1, 3855);
+			mySketch.gltranslate(this.locationGenesis.x, this.location.y * distort, 0); // position shape at location			
+			mySketch.glrotate(this.rotation/2, 0, 1, 0);
+
+			mySketch.gllinewidth(32 * this.scale.y);
+			mySketch.linesegment(this.width, 0, 0, -this.width, 0, 0);
+
+			mySketch.glpopmatrix();
+
+		break;
+
 		case "·_◼...._.":
 			mySketch.glpushmatrix();
 			mySketch.gldisable("line_stipple");
@@ -415,7 +446,7 @@ Shape.prototype.display = function(){
 			mySketch.glpopmatrix();
 		break;
 
-		case "-_--|--._.":
+		case "-_--|--_.":
 			mySketch.glpushmatrix();
 			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
 			mySketch.moveto(0, 0, 0);
@@ -423,11 +454,39 @@ Shape.prototype.display = function(){
 			//
 			mySketch.gldisable("line_stipple");
 			//
-			mySketch.plane(this.boundsWidth / 2, 0.0019);
+			mySketch.gllinewidth(4);
+			mySketch.linesegment(-this.width, 0, 0, this.width, 0, 0);
 			mySketch.moveto(0, this.locationGenesis.x * (1 - this.scale.x), 0);
 			mySketch.glrotate(90, 0, 0, 1);
+			mySketch.shapeprim("polygon");
 
-			mySketch.plane(0.03, 0.0019);
+			mySketch.plane(this.height/16, this.width/128);
+			mySketch.glpopmatrix();
+		break;
+
+		case "+_--|--_.":
+			mySketch.glpushmatrix();
+			mySketch.gltranslate(this.location.x, this.locationGenesis.y, 0);
+			mySketch.moveto(0, 0, 0);
+			//
+			mySketch.gldisable("line_stipple");
+			//
+			mySketch.gllinewidth(8 * this.scale.x);
+			mySketch.linesegment(0, -this.height*2, 0, 0, this.height*2, 0);
+			mySketch.glpopmatrix();
+			//
+			//
+			//
+			mySketch.glpushmatrix();
+			mySketch.gltranslate(this.locationGenesis.x, this.location.y, 0);
+			mySketch.moveto(0, 0, 0);
+			mySketch.glrotate(this.rotation+90, 0, 0, this.rotationDirection);
+			//
+			mySketch.gldisable("line_stipple");
+			//
+			mySketch.gllinewidth(8 * this.scale.x);
+			mySketch.linesegment(-this.width*4, 0, 0, this.width*4, 0, 0);
+
 			mySketch.glpopmatrix();
 		break;
 
@@ -438,10 +497,15 @@ Shape.prototype.display = function(){
 			mySketch.glrotate(this.rotation, 0, 0, this.rotationDirection);
 			mySketch.moveto(0, 0, 0);
 			//
+			mySketch.gllinewidth(2);
 			mySketch.gldisable("line_stipple");
 			mySketch.shapeslice(3);
 			//
-			mySketch.circle(0.015 * this.scale.y);
+			mySketch.glenable("line_stipple");
+			
+			mySketch.gllinestipple(1, 3855);
+			mySketch.circle(0.01);
+			mySketch.framecircle(0.01 / this.scale.y);
 			mySketch.glpopmatrix();
 		break;
 
@@ -488,8 +552,8 @@ Shape.prototype.display = function(){
 		case "·_●...._.":
 			mySketch.glpushmatrix();
 			mySketch.shapeorient(0, 0, 0);
-			mySketch.gltranslate((distortthis.location.x + positions[1]) * distort, this.location.y, 0);
-			mySketch.glrotate(this.rotation * this.rotationDirection, 0, 0, 1);			
+			mySketch.gltranslate((this.location.x + positions[1]) * distort, this.location.y, 0);
+			mySketch.glrotate(this.rotation, 0, 0, 1);			
 			mySketch.moveto(positions[0], 0, 0);
 			//
 			mySketch.shapeslice(24);

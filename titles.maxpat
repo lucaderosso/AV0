@@ -279,7 +279,7 @@
 					"outlettype" : [ "int" ],
 					"patching_rect" : [ 1079.799561, 294.0, 55.0, 22.0 ],
 					"style" : "",
-					"text" : ">= 1800"
+					"text" : ">= 1200"
 				}
 
 			}
@@ -1394,8 +1394,8 @@
 		"styles" : [ 			{
 				"name" : "newobjYellow-1",
 				"default" : 				{
-					"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
-					"fontsize" : [ 12.059008 ]
+					"fontsize" : [ 12.059008 ],
+					"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
