@@ -116,6 +116,7 @@ function dialValue(dial, value){
 		break;
 		case "d4":
 			dial4 = value;
+			assignEase(value);
 		break;
 		case "d5": // Audio In
 			dial5 = value;
@@ -126,7 +127,6 @@ function dialValue(dial, value){
 		case "d7":
 			dial7 = value;
 			updateLifeDecay(value);			
-			assignEase(value);
 			background(value);
 		break;
 		default:

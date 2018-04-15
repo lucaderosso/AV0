@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 792.0, 79.0, 911.0, 1034.0 ],
+		"rect" : [ 361.0, 132.0, 911.0, 1034.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -44,7 +44,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 186.0, 20.0, 76.0, 47.0 ],
-					"presentation_rect" : [ 145.625, 20.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "Timer bypass control"
 				}
@@ -58,7 +57,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 407.625, 20.0, 214.0, 33.0 ],
-					"presentation_rect" : [ 278.0, 12.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "qmetro is less strict than metro and therefore more kind with CPU"
 				}
@@ -73,7 +71,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 394.0, 234.0, 30.0, 30.0 ],
+					"patching_rect" : [ 394.0, 334.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -258,7 +256,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 238.625, 309.0, 29.5, 22.0 ],
+					"patching_rect" : [ 238.625, 279.0, 29.5, 22.0 ],
 					"style" : "",
 					"text" : "0"
 				}
@@ -272,7 +270,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 203.5, 349.0, 22.0, 22.0 ],
+					"patching_rect" : [ 203.5, 319.0, 22.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -284,7 +282,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 203.5, 309.0, 29.5, 22.0 ],
+					"patching_rect" : [ 203.5, 279.0, 29.5, 22.0 ],
 					"style" : "",
 					"text" : "1"
 				}
@@ -311,7 +309,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 236.5, 349.0, 34.0, 22.0 ],
+					"patching_rect" : [ 236.5, 319.0, 34.0, 22.0 ],
 					"style" : "",
 					"text" : "gate"
 				}
@@ -469,7 +467,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "int", "int" ],
-					"patching_rect" : [ 281.0, 349.0, 50.0, 22.0 ],
+					"patching_rect" : [ 281.0, 319.0, 50.0, 22.0 ],
 					"style" : "",
 					"text" : "change"
 				}
@@ -727,7 +725,7 @@
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 278.625, 20.0, 121.0, 22.0 ],
 					"style" : "",
-					"text" : "qmetro 30 @active 1"
+					"text" : "qmetro 40 @active 1"
 				}
 
 			}
@@ -738,7 +736,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 9,
 					"outlettype" : [ "int", "int", "float", "float", "float", "", "int", "float", "" ],
-					"patching_rect" : [ 278.625, 309.0, 158.0, 22.0 ],
+					"patching_rect" : [ 278.625, 279.0, 158.0, 22.0 ],
 					"style" : "",
 					"text" : "transport @clocksource live"
 				}
@@ -751,7 +749,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 424.0, 407.5, 224.0, 47.0 ],
+					"patching_rect" : [ 424.0, 407.5, 225.0, 47.0 ],
 					"style" : "",
 					"text" : "Before I had just a random now [timeline] allows me to have a sequence of pre defined scenes' lengths"
 				}
@@ -861,7 +859,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 0 ],
-					"midpoints" : [ 718.5, 866.5, 684.8125, 866.5, 684.8125, 282.0, 248.125, 282.0 ],
+					"midpoints" : [ 718.5, 866.5, 684.8125, 866.5, 684.8125, 251.0, 248.125, 251.0 ],
 					"order" : 1,
 					"source" : [ "obj-21", 0 ]
 				}
@@ -971,7 +969,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 0 ],
-					"midpoints" : [ 343.5, 724.188049, 677.75, 724.188049, 677.75, 289.0, 248.125, 289.0 ],
+					"midpoints" : [ 343.5, 724.188049, 677.75, 724.188049, 677.75, 258.0, 248.125, 258.0 ],
 					"source" : [ "obj-31", 2 ]
 				}
 
@@ -1159,7 +1157,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-14", 1 ],
-					"midpoints" : [ 305.5, 335.0, 261.0, 335.0 ],
+					"midpoints" : [ 305.5, 305.0, 261.0, 305.0 ],
 					"source" : [ "obj-9", 1 ]
 				}
 
@@ -1167,7 +1165,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-50", 0 ],
-					"midpoints" : [ 357.625, 374.416687, 521.5, 374.416687 ],
+					"midpoints" : [ 357.625, 313.416687, 521.5, 313.416687 ],
 					"source" : [ "obj-9", 4 ]
 				}
 
