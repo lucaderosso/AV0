@@ -304,6 +304,7 @@ Shape.prototype.display = function(){
 			mySketch.glrotate(this.rotation, 0, 0, -1);
 			mySketch.glscale(this.scale.x, 1, 1);
 			//
+			//
 			mySketch.gllinewidth(2);
 			mySketch.linesegment(-this.width, 0, 0, this.width, 0, 0);
 			//

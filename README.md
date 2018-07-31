@@ -212,5 +212,3 @@ Simply a list of all the files you'll find in this repository, and a brief descr
 When the window or the device are on focus.
 * __Press V:__ to see the viewport within which visuals are projected. Useful when going fullscreen on unusual aspect ratios and need to calibrate the projector.
 * __Press T:__ to see again titles after they disappear. Pressing notes again will make them fade away.
-
-

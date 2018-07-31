@@ -42,7 +42,7 @@ myMatrix.dim = [1280, 1024];
 
 var myWindow = new JitterObject("jit.window", "video-window"); //
 myWindow.floating = 0;
-myWindow.size = [500, 1000];
+myWindow.size = [720, 450];
 myWindow.pos = [0, 0];
 myWindow.fsaa = 1;
 myWindow.floating = 0;
@@ -88,8 +88,8 @@ myGrid.line_width = 2;
 // —————————
 
 var viewPortStatus = 0;
-var viewPortAspectRatio = [1, 2];
-var screenResolution = [2880, 1800]; // setting widow size as a default value
+var viewPortAspectRatio = [16, 8];
+var screenResolution = [1440, 900]; // setting widow size as a default value
 
 var withRatio; // width ratio based on screen size
 var heightRatio; // height ratio based on screen size
